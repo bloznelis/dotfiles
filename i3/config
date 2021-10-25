@@ -38,8 +38,6 @@ bindsym $mod+Return exec --no-startup-id alacritty --working-directory "`xcwd`"
 # start a floating terminal
 bindsym $mod+Shift+Return exec alacritty --class floatingTerminal --working-directory "`xcwd`"
 for_window [instance="^floatingTerminal$"] floating enable
-#bindsym $mod+Return exec alacritty
-
 
 # kill focused window
 bindsym $mod+n kill
@@ -164,8 +162,8 @@ bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
 
 # Color settings
-set $bg-color 	         #1d2021
-set $inactive-bg-color   #282828
+set $bg-color 	         #282828
+set $inactive-bg-color   #1d2021
 set $text-color          #98971a
 set $inactive-text-color #a89984
 set $urgent-bg-color     #E53935
