@@ -66,9 +66,6 @@ set scrolloff=2
 " Indent new line the same as the preceding line
 set autoindent
 
-" statusline indicates insert or normal mode
-" set showmode showcmd
-
 " make scrolling and painting fast
 " ttyfast kept for vim compatibility but not needed for nvim
 set ttyfast lazyredraw
@@ -78,9 +75,6 @@ set showmatch
 
 " http://vim.wikia.com/wiki/Searching
 set hlsearch incsearch ignorecase smartcase
-
-" As opposed to `wrap`
-"set nowrap
 
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 set autochdir
