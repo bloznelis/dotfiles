@@ -162,8 +162,8 @@ bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
 
 # Color settings
-set $bg-color 	         #282828
-set $inactive-bg-color   #1d2021
+set $bg-color 	         #1d2021
+set $inactive-bg-color   #282828
 set $text-color          #98971a
 set $inactive-text-color #a89984
 set $urgent-bg-color     #E53935
@@ -204,6 +204,12 @@ bindsym $mod+p exec multimonitorlock --lock dimblur -- -ne
 #Wallpaper
 exec --no-startup-id nitrogen --restore
 
+#Floating terminal
+exec alacritty --class floatingTerminal
+
+#Polybar
+exec_always --no-startup-id /home/lukas/.config/polybar/launch.sh
+
 #Composition
 exec --no-startup-id picom --config /home/lukas/.config/picom/config.conf
 
@@ -215,6 +221,3 @@ exec --no-startup-id imwheel -b 45
 
 #Notifications
 exec --no-startup-id deadd-notification-center
-
-#Polybar
-exec_always --no-startup-id /home/lukas/.config/polybar/launch.sh

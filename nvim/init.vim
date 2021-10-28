@@ -107,6 +107,10 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Valloric/YouCompleteMe'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdcommenter'
 
 " Colors
 Plug 'morhetz/gruvbox'
@@ -118,8 +122,10 @@ set background=dark
 let g:gruvbox_material_background = "medium"
 colorscheme gruvbox-material
 
-nmap <F8> :w<CR>
 nmap <F6> :NERDTreeToggle<CR>
+nmap <F7> :Files<CR>
+nmap <F8> :GFiles<CR>
+
 let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
 
 " Quick window switching
@@ -139,8 +145,8 @@ filetype plugin indent on
 " ---------------------------------------------------------------------------
 
 " Start NERDTree. If a file is specified, move the cursor to its window.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
