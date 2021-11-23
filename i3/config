@@ -39,6 +39,10 @@ bindsym $mod+Return exec --no-startup-id alacritty --working-directory "`xcwd`"
 bindsym $mod+Shift+Return exec alacritty --class floatingTerminal --working-directory "`xcwd`"
 for_window [instance="^floatingTerminal$"] floating enable
 
+# Calculator
+for_window [instance="^gnome-calculator$"] floating enable
+
+
 # kill focused window
 bindsym $mod+n kill
 
@@ -205,7 +209,7 @@ bindsym $mod+p exec multimonitorlock --lock dimblur -- -ne
 exec --no-startup-id nitrogen --restore
 
 #Floating terminal
-exec alacritty --class floatingTerminal
+exec --no-startup-id alacritty --class floatingTerminal
 
 #Polybar
 exec_always --no-startup-id /home/lukas/.config/polybar/launch.sh
