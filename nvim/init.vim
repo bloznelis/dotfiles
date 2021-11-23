@@ -1,14 +1,9 @@
-set hlsearch    " highlight all search results
-set ignorecase  " do case insensitive search 
-set incsearch   " show incremental search results as you type
-set number      " display line number
-set noswapfile  " disable swap file
-
 " (N)Vim Configuration File
 " vim  : place in $HOME/.vimrc
 " nvim : place in $HOME/.config/nvim/init.vim
 " General settings
 " ---------------------------------------------------------------------------
+"
 
 " Fix colorscheme
 set termguicolors
@@ -97,6 +92,9 @@ set clipboard=unnamedplus
 " http://vim.wikia.com/wiki/Highlight_current_line
 set cursorline
 
+" Don't start new lines with comment symbol
+set formatoptions-=cro
+
 call plug#begin('~/.config/nvim/plugged')
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
@@ -105,6 +103,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdcommenter'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+"Plug 'scrooloose/syntastic'
 
 " Colors
 Plug 'morhetz/gruvbox'
@@ -115,6 +115,23 @@ call plug#end()
 set background=dark
 let g:gruvbox_material_background = "medium"
 colorscheme gruvbox-material
+
+" Key bindings
+" ---------------------------------------------------------
+let mapleader = "\<space>"
+
+nmap          <Leader>vr :source $MYVIMRC<cr>
+nmap <silent> <Leader>ve :vsplit $MYVIMRC<cr>
+nmap <silent> <Leader>f :Files<cr>
+nmap <silent> <Leader>gf :GFiles<cr>
+nmap <silent> <Leader>b :Buffers<cr>
+
+
+nmap <silent> <Leader>tl :tabnext<cr>
+nmap <silent> <Leader>th :tabprevious<cr>
+nmap <silent> <Leader>tn :tabnew<cr>
+nmap <silent> <Leader>tq :tabclose<cr>
+" ---------------------------------------------------------
 
 nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :Files<CR>
