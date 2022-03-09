@@ -26,10 +26,6 @@ font pango:monospace 8
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -42,6 +38,9 @@ for_window [instance="^floatingTerminal$"] floating enable
 # Calculator
 for_window [instance="^gnome-calculator$"] floating enable
 
+# Clipboard managers
+for_window [instance="^copyq$"] floating enable
+
 
 # kill focused window
 bindsym $mod+n kill
@@ -53,11 +52,11 @@ bindsym $mod+n kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+k focus down
-bindsym $mod+j focus up
-bindsym $mod+l focus right
+## change focus
+#bindsym $mod+h focus left
+#bindsym $mod+k focus down
+#bindsym $mod+j focus up
+#bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -115,6 +114,8 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+
+# assign [class="firefox"] 10
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -179,7 +180,7 @@ client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-co
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #424242
 
 #Rofi
-bindsym $mod+d exec "rofi -modi drun,run -show drun -sidebar-mode -terminal alacritty -theme gruvbox-light-soft"
+bindsym $mod+p exec "rofi -modi drun,run -show drun -sidebar-mode -terminal alacritty -theme gruvbox-light-soft"
 
 #Screenshots
 bindsym --release Print exec "flameshot gui"
@@ -203,7 +204,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym Ctrl+Shift+B exec copyq -s main show
 
 #Lockscreen
-bindsym $mod+p exec multimonitorlock --lock dimblur -- -ne
+bindsym $mod+l exec multimonitorlock --lock dimblur -- -ne
 
 #Wallpaper
 exec --no-startup-id nitrogen --restore
