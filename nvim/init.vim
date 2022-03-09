@@ -56,7 +56,7 @@ set relativenumber
 set number 
 
 " number of lines offset when jumping
-set scrolloff=2
+set scrolloff=20
 
 " Indent new line the same as the preceding line
 set autoindent
@@ -95,6 +95,14 @@ set cursorline
 " Don't start new lines with comment symbol
 set formatoptions-=cro
 
+" Directory is always the same as the file you are editing
+set autochdir
+
+
+let g:ycm_filetype_blacklist = {
+      \ 'scala': 1,
+      \}
+
 call plug#begin('~/.config/nvim/plugged')
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
@@ -104,11 +112,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-"Plug 'scrooloose/syntastic'
+Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Colors
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+
 call plug#end()
 
 " Set colorscheme
@@ -121,11 +131,10 @@ colorscheme gruvbox-material
 let mapleader = "\<space>"
 
 nmap          <Leader>vr :source $MYVIMRC<cr>
-nmap <silent> <Leader>ve :vsplit $MYVIMRC<cr>
-nmap <silent> <Leader>f :Files<cr>
+nmap <silent> <Leader>ve :e $MYVIMRC<cr>
+nmap <silent> <Leader>f  :Files<cr>
 nmap <silent> <Leader>gf :GFiles<cr>
-nmap <silent> <Leader>b :Buffers<cr>
-
+nmap <silent> <Leader>b  :Buffers<cr>
 
 nmap <silent> <Leader>tl :tabnext<cr>
 nmap <silent> <Leader>th :tabprevious<cr>
