@@ -99,6 +99,11 @@ set formatoptions-=cro
 set autochdir
 
 
+"Delete instead of cut in visual mode when pressing d"
+nnoremap d "_d
+vnoremap d "_d
+
+
 let g:ycm_filetype_blacklist = {
       \ 'scala': 1,
       \}
@@ -110,6 +115,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
@@ -118,13 +124,16 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Colors
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+Plug 'overcache/NeoSolarized'
 
 call plug#end()
 
 " Set colorscheme
-set background=dark
-let g:gruvbox_material_background = "medium"
-colorscheme gruvbox-material
+set background=light
+colorscheme NeoSolarized
+
+" Disable fzf preview
+let g:fzf_preview_window = []
 
 " Key bindings
 " ---------------------------------------------------------
@@ -140,6 +149,8 @@ nmap <silent> <Leader>tl :tabnext<cr>
 nmap <silent> <Leader>th :tabprevious<cr>
 nmap <silent> <Leader>tn :tabnew<cr>
 nmap <silent> <Leader>tq :tabclose<cr>
+
+nmap <silent> <Leader>q  :q<cr>
 " ---------------------------------------------------------
 
 nmap <F6> :NERDTreeToggle<CR>
