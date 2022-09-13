@@ -1,9 +1,5 @@
 " (N)Vim Configuration File
 " vim  : place in $HOME/.vimrc
-" nvim : place in $HOME/.config/nvim/init.vim
-" General settings
-" ---------------------------------------------------------------------------
-"
 
 " Fix colorscheme
 set termguicolors
@@ -98,32 +94,20 @@ set formatoptions-=cro
 " Directory is always the same as the file you are editing
 set autochdir
 
-
-"Delete instead of cut in visual mode when pressing d"
-nnoremap d "_d
-vnoremap d "_d
-
-
-let g:ycm_filetype_blacklist = {
-      \ 'scala': 1,
-      \}
-
 call plug#begin('~/.config/nvim/plugged')
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'Valloric/YouCompleteMe'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'hashivim/vim-terraform'
+Plug 'airblade/vim-gitgutter'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Colors
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
 Plug 'overcache/NeoSolarized'
 
 call plug#end()
@@ -132,22 +116,21 @@ call plug#end()
 set background=light
 colorscheme NeoSolarized
 
-" Disable fzf preview
-let g:fzf_preview_window = []
-
 " Key bindings
 " ---------------------------------------------------------
 let mapleader = "\<space>"
 
 nmap          <Leader>vr :source $MYVIMRC<cr>
 nmap <silent> <Leader>ve :e $MYVIMRC<cr>
-nmap <silent> <Leader>f  :Files<cr>
-nmap <silent> <Leader>gf :GFiles<cr>
-nmap <silent> <Leader>b  :Buffers<cr>
+nmap <silent> <Leader>ff <cmd>Telescope find_files<cr>
+nmap <silent> <Leader>fg <cmd>Telescope live_grep<cr>
+nmap <silent> <Leader>fb <cmd>Telescope buffers<cr>
+nmap <silent> <Leader>fh <cmd>Telescope help_tags<cr>
 
 nmap <silent> <Leader>tl :tabnext<cr>
-nmap <silent> <Leader>th :tabprevious<cr>
-nmap <silent> <Leader>tn :tabnew<cr>
+nmap <silent> <Leader>tp :tabprevious<cr>
+nmap <silent> <Leader>tn :tabnext<cr>
+nmap <silent> <Leader>tt :tabnew<cr>
 nmap <silent> <Leader>tq :tabclose<cr>
 
 nmap <silent> <Leader>q  :q<cr>
@@ -159,21 +142,29 @@ nmap <F8> :GFiles<CR>
 
 let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
 
-" Quick window switching
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+" Splits
+nmap <silent> <Leader>wv :vsplit<cr>
+nmap <silent> <Leader>ws :split<cr>
+nmap <silent> <Leader>wh <C-w>h<cr>
+nmap <silent> <Leader>wl <C-w>l<cr>
+nmap <silent> <Leader>wk <C-w>k<cr>
+nmap <silent> <Leader>wj <C-w>j<cr>
+nmap <silent> <Leader>wc :close<cr>
 
-" Make new window
-nmap <C-a> :vsplit<CR>
-nmap <C-s> :split<CR>
+" Disable arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 " Colors
 " ---------------------------------------------------------------------------
 syntax enable
 filetype plugin indent on
 " ---------------------------------------------------------------------------
+
+" Update git gutter on write
+autocmd BufWritePost * GitGutter
 
 " Start NERDTree. If a file is specified, move the cursor to its window.
 " autocmd StdinReadPre * let s:std_in=1
