@@ -9,6 +9,10 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# monitors
+set $monitor_left DisplayPort-1
+set $monitor_right HDMI-A-0
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -40,6 +44,9 @@ for_window [instance="^gnome-calculator$"] floating enable
 
 # Clipboard managers
 for_window [instance="^copyq$"] floating enable
+
+# Floating git-cola
+for_window [instance="^git-cola$"] floating enable
 
 
 # kill focused window
@@ -115,7 +122,17 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# assign [class="firefox"] 10
+#workspaces
+workspace $ws1 output $monitor_left
+workspace $ws2 output $monitor_left
+workspace $ws3 output $monitor_left
+workspace $ws4 output $monitor_left
+workspace $ws5 output $monitor_left
+workspace $ws6 output $monitor_left
+workspace $ws7 output $monitor_right
+workspace $ws8 output $monitor_right
+workspace $ws9 output $monitor_right
+workspace $ws10 output $monitor_right
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
