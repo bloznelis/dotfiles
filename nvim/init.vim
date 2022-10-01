@@ -123,7 +123,8 @@ let mapleader = "\<space>"
 nmap          <Leader>vr :source $MYVIMRC<cr>
 nmap <silent> <Leader>ve :e $MYVIMRC<cr>
 nmap <silent> <Leader>ff <cmd>Telescope find_files<cr>
-nmap <silent> <Leader>fg <cmd>Telescope live_grep<cr>
+nmap <silent> <Leader>f/ <cmd>Telescope live_grep<cr>
+nmap <silent> <Leader>fg <cmd>Telescope git_files<cr>
 nmap <silent> <Leader>fb <cmd>Telescope buffers<cr>
 nmap <silent> <Leader>fh <cmd>Telescope help_tags<cr>
 
