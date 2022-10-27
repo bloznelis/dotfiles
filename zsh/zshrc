@@ -118,7 +118,6 @@ function cpath(){
   echo copied.
 }
 alias ssh='TERM=xterm-color ssh'
-alias dbeaver='GTK_THEME=Adwaita:dark dbeaver'
 
 # Bluelabs
 alias ggrep=grep
