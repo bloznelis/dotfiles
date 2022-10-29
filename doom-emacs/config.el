@@ -63,7 +63,8 @@
 (setq doom-themes-treemacs-theme "doom-colors")
 
 ;; Lukas' settings
-(setq scroll-conservatively 1)
+(setq scroll-margin 20)
+(setq scroll-conservatively 1000) ;; Scroll one line at the time
 
 ' runnables
 (keychain-refresh-environment)
