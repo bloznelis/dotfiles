@@ -10,9 +10,6 @@ export EDITOR="nvim"
 # export GTK_THEME="Gruvbox-Material-Dark"
 # export GTK2_RC_FILES="/usr/share/themes/Gruvbox-Material-Dark/gtk-2.0/gtkrc"
 
-# BlueLabs. Don't forget /etc/environment 
-# export GITHUB_ACCESS_TOKEN=
-
 ZSH_THEME="blazz"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5e5847,bold,underline"
 
@@ -119,16 +116,13 @@ function cpath(){
 }
 alias ssh='TERM=xterm-color ssh'
 
-# Bluelabs
 alias ggrep=grep
 
 # Git
 alias dag='git-cola dag'
 alias serialize='echo "Serialization is DTO -> String"'
 
-
 alias cal='cal -m'
-
 
 #GCloud CLI
 USE_GKE_GCLOUD_AUTH_PLUGIN=True

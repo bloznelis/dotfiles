@@ -37,6 +37,5 @@ bspc config active_border_color '#002b36'
 bspc config pointer_motion_interval 7ms
 
 bspc config single_monocle true
-bspc config pointer_follows_focus true
 
 alacritty --class floatingTerminal &
