@@ -13,6 +13,7 @@ deadd-notification-center &
 flameshot &
 /home/lukas/.config/polybar/bspwm/launch.sh &
 hsetroot -solid "#073642" &
+xsetroot -cursor_name left_ptr &
 
 bspc monitor DisplayPort-1 -d I II III IV V VI
 bspc monitor HDMI-A-0 -d VII VIII IX X
