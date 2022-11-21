@@ -77,6 +77,8 @@
   (yank)
   (yank))
 
+(map! "C-q" #'lsp-ui-doc-glance)
+
 (map! "C-x C-d" #'duplicate-line)
 
 (require 'expand-region)
