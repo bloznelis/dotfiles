@@ -106,7 +106,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'airblade/vim-gitgutter'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
+Plug 'fedepujol/move.nvim'
 " Colors
 Plug 'overcache/NeoSolarized'
 
@@ -122,11 +122,19 @@ let mapleader = "\<space>"
 
 nmap          <Leader>vr :source $MYVIMRC<cr>
 nmap <silent> <Leader>ve :e $MYVIMRC<cr>
-nmap <silent> <Leader>ff <cmd>Telescope find_files<cr>
-nmap <silent> <Leader>f/ <cmd>Telescope live_grep<cr>
+nmap <silent> <Leader>.  <cmd>Telescope find_files<cr>
+nmap <silent> <Leader><Leader>  <cmd>Telescope git_files<cr>
+nmap <silent> <Leader>/ <cmd>Telescope live_grep<cr>
 nmap <silent> <Leader>fg <cmd>Telescope git_files<cr>
 nmap <silent> <Leader>fb <cmd>Telescope buffers<cr>
+nmap <silent> <Leader>,  <cmd>Telescope buffers<cr>
 nmap <silent> <Leader>fh <cmd>Telescope help_tags<cr>
+
+nmap <silent> <Leader>bi <cmd>Telescope buffers<cr>
+nmap <silent> <Leader>bn <cmd>:bnext<cr>
+nmap <silent> <Leader>bp <cmd>:bprev<cr>
+
+nmap <silent> <Leader>fs <cmd>:w<cr>
 
 nmap <silent> <Leader>tl :tabnext<cr>
 nmap <silent> <Leader>tp :tabprevious<cr>
@@ -138,10 +146,7 @@ nmap <silent> <Leader>q  :q<cr>
 " ---------------------------------------------------------
 
 nmap <F6> :NERDTreeToggle<CR>
-nmap <F7> :Files<CR>
-nmap <F8> :GFiles<CR>
-
-let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
+nmap <silent> <Leader>op :NERDTreeToggle<CR>
 
 " Splits
 nmap <silent> <Leader>wv :vsplit<cr>
@@ -157,6 +162,18 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+" Normal-mode commands
+nnoremap <silent> <A-j> :MoveLine(1)<CR>
+nnoremap <silent> <A-k> :MoveLine(-1)<CR>
+nnoremap <silent> <A-l> :MoveHChar(1)<CR>
+nnoremap <silent> <A-h> :MoveHChar(-1)<CR>
+
+" Visual-mode commands
+vnoremap <silent> <A-j> :MoveBlock(1)<CR>
+vnoremap <silent> <A-k> :MoveBlock(-1)<CR>
+vnoremap <silent> <A-l> :MoveHBlock(1)<CR>
+vnoremap <silent> <A-h> :MoveHBlock(-1)<CR>
 
 " Colors
 " ---------------------------------------------------------------------------
