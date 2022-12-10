@@ -63,7 +63,7 @@
 (setq doom-themes-treemacs-theme "doom-colors")
 
 ;; Lukas' settings
-(setq scroll-margin 20)
+;;(setq scroll-margin 20)
 (setq scroll-conservatively 1000) ;; Scroll one line at the time
 
 ' runnables
@@ -83,3 +83,33 @@
 
 (require 'expand-region)
 (map! "C-x C-w" #'er/expand-region)
+(map! :leader
+      "v" #'er/expand-region)
+
+
+(setq clojure-toplevel-inside-comment-form t)
+
+(map! :leader
+      :desc "Eval to comment"
+      "m e ;" #'cider-eval-defun-to-comment)
+
+(map! "C-t" #'+vterm/toggle) ;; does not work??
+
+;; Wrap
+(map! :leader
+      "(" #'sp-wrap-round)
+
+(map! :leader
+      "[" #'sp-wrap-square)
+
+(map! :leader
+      "{" #'sp-wrap-square)
+
+(map! :leader
+      "e d" #'cider-eval-defun-at-point)
+
+(map! :leader
+      "e b" #'cider-eval-buffer)
+
+(map! :leader
+      "e ;" #'cider-eval-defun-to-comment)
