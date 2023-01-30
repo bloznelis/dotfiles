@@ -57,7 +57,7 @@
 ;; they are implemented.
 
 ;; Modeline configuration
-(setq doom-modeline-buffer-file-name-style 'file-name)
+;; (setq doom-modeline-buffer-file-name-style 'file-name)
 
 ;; Treemacs icons
 (setq doom-themes-treemacs-theme "doom-colors")
@@ -77,7 +77,7 @@
   (yank)
   (yank))
 
-(map! "C-q" #'lsp-ui-doc-glance)
+(map! "C-q" #'lsp-ui-doc-toggle)
 
 (map! "C-x C-d" #'duplicate-line)
 
@@ -113,3 +113,9 @@
 
 (map! :leader
       "e ;" #'cider-eval-defun-to-comment)
+
+;; Github forge
+(setq auth-sources '("~/.authinfo.gpg"))
+
+;; YAML mode for templated yaml files
+(add-to-list 'auto-mode-alist '("\\.yaml.gotmpl\\'" . yaml-mode))
