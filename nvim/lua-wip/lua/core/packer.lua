@@ -19,6 +19,8 @@ return require('packer').startup(function(use)
 
   use("tpope/vim-fugitive")
 
+  use("preservim/nerdcommenter")
+
   use {
           'VonHeikemen/lsp-zero.nvim',
           branch = 'v1.x',
@@ -41,5 +43,4 @@ return require('packer').startup(function(use)
                   {'rafamadriz/friendly-snippets'}, -- Optional
           }
   }
-
 end)

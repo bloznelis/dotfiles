@@ -6,9 +6,7 @@ local lsp = require('lsp-zero').preset({
 
 lsp.setup_servers({'rust_analyzer', 'lua_ls'})
 
-
--- Fix Undefined global 'vim'
-lsp.configure('lua_ls', {
+require'lspconfig'.lua_ls.setup {
     settings = {
         Lua = {
             diagnostics = {
@@ -16,7 +14,7 @@ lsp.configure('lua_ls', {
             }
         }
     }
-})
+}
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}

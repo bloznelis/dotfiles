@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/lukas/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
   },
+  nerdcommenter = {
+    loaded = true,
+    path = "/home/lukas/.local/share/nvim/site/pack/packer/start/nerdcommenter",
+    url = "https://github.com/preservim/nerdcommenter"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/lukas/.local/share/nvim/site/pack/packer/start/nvim-cmp",
