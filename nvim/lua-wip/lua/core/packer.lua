@@ -23,6 +23,8 @@ return require('packer').startup(function(use)
         }
     }
 
+    use("folke/zen-mode.nvim")
+
     use 'folke/tokyonight.nvim'
 
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
