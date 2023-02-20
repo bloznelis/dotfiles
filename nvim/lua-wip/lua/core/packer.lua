@@ -21,6 +21,8 @@ return require('packer').startup(function(use)
 
   use("preservim/nerdcommenter")
 
+  use("lewis6991/gitsigns.nvim")
+
   use {
           'VonHeikemen/lsp-zero.nvim',
           branch = 'v1.x',
