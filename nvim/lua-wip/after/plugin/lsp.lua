@@ -4,7 +4,7 @@ local lsp = require('lsp-zero').preset({
   manage_nvim_cmp = true,
 })
 
-lsp.setup_servers({'rust_analyzer', 'lua_ls'})
+lsp.setup_servers({'rust_analyzer', 'lua_ls', 'gopls'})
 
 require'lspconfig'.lua_ls.setup {
     settings = {
