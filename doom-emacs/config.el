@@ -69,6 +69,8 @@
 ' runnables
 (keychain-refresh-environment)
 
+(setq require-final-newline t)
+
 ;; Lukas' extensions
 (defun duplicate-line ()
   "Duplicate current line"
@@ -77,9 +79,17 @@
   (yank)
   (yank))
 
-(map! "C-q" #'lsp-ui-doc-toggle)
+;; (add-hook 'company-mode-hook
+;; (lambda ()
+;;   (add-hook 'evil-normal-state-entry-hook
+;;       (lambda ()
+;;               (company-abort)))))
 
-(map! "C-x C-d" #'duplicate-line)
+;;;;;;;;;;;;;;
+;;   LSP
+;;;;;;;;;;;;;
+(map! "C-q" #'lsp-ui-doc-toggle)
+(map! "C-b" #'+lookup/definition) ;; does not work?
 
 (require 'expand-region)
 (map! "C-x C-w" #'er/expand-region)
