@@ -26,3 +26,8 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes" -- A gutter for signs
 
 vim.opt.updatetime = 250
+
+vim.api.nvim_create_autocmd(
+    "BufEnter",
+    { command = "silent! lcd %:p:h" }
+)

@@ -5,17 +5,31 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    -- colors
+    use 'folke/tokyonight.nvim'
+    use 'sainnhe/gruvbox-material'
+    use 'shaunsingh/nord.nvim'
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+
+    -- telescope --
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+
+    -- icons
+    use 'nvim-tree/nvim-web-devicons'
+
+    -- lualine
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
 
+    -- nvim-tree
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
@@ -23,20 +37,17 @@ return require('packer').startup(function(use)
         }
     }
 
-    use("folke/zen-mode.nvim")
-
-    use 'folke/tokyonight.nvim'
-
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-
-    use("mbbill/undotree")
-
+    -- git
     use("tpope/vim-fugitive")
-
-    use("preservim/nerdcommenter")
-
     use("lewis6991/gitsigns.nvim")
 
+    --misc
+    use("folke/zen-mode.nvim")
+    use("mbbill/undotree")
+    use("preservim/nerdcommenter")
+    use("phaazon/hop.nvim")
+
+    -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',

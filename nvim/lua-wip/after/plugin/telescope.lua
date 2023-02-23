@@ -1,12 +1,12 @@
 local builtin = require('telescope.builtin')
-local actions = require("telescope.actions")
+local actions = require('telescope.actions')
 
 --close telescope on esc
-require("telescope").setup({
+require('telescope').setup({
     defaults = {
         mappings = {
             i = {
-                ["<esc>"] = actions.close,
+                ['<esc>'] = actions.close,
             },
         },
     },
@@ -14,7 +14,11 @@ require("telescope").setup({
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>bb', builtin.buffers, {})
-vim.keymap.set('n', '<leader><leader>', builtin.git_files, {})
-vim.keymap.set('n', '<leader>/', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") })
+vim.keymap.set('n', '<leader><leader>', function()
+    builtin.git_files({ show_untracked = true })
 end)
+vim.keymap.set('n', '<leader>/', function()
+	builtin.grep_string({ search = vim.fn.input('Grep > ') })
+end)
+
+require('telescope').load_extension('fzf')
