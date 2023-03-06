@@ -1,8 +1,7 @@
 function Colorize(color)
-        color = color or "tokyonight-storm"
-        vim.cmd.colorscheme(color)
+    color = color or "tokyonight"
+    vim.cmd.colorscheme(color)
 end
-
 
 -- borderless telescope
 require("tokyonight").setup({

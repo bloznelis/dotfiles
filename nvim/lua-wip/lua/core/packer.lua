@@ -7,6 +7,7 @@ return require('packer').startup(function(use)
 
     -- colors
     use 'folke/tokyonight.nvim'
+    use 'navarasu/onedark.nvim'
     use 'sainnhe/gruvbox-material'
     use 'shaunsingh/nord.nvim'
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -37,6 +38,12 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- surround
+    use({
+        "kylechui/nvim-surround",
+        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    })
+
     -- git
     use("tpope/vim-fugitive")
     use("lewis6991/gitsigns.nvim")
@@ -46,6 +53,7 @@ return require('packer').startup(function(use)
     use("mbbill/undotree")
     use("preservim/nerdcommenter")
     use("phaazon/hop.nvim")
+    use("elkowar/yuck.vim")
 
     -- LSP
     use {

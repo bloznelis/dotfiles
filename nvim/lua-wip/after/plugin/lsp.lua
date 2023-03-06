@@ -62,3 +62,14 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+vim.diagnostic.config({
+  virtual_text = true,
+  float = {
+    focusable = false,
+    style = 'minimal',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
+})

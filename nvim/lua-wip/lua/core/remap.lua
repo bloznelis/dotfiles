@@ -31,3 +31,8 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- replace word under cursor "dialog"
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- open init.lua
+vim.keymap.set("n", "<leader>ec", function ()
+   vim.cmd('e' .. "$HOME/.config/nvim/init.lua")
+end)
