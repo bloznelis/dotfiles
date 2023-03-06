@@ -63,13 +63,15 @@
 (setq doom-themes-treemacs-theme "doom-colors")
 
 ;; Lukas' settings
-;;(setq scroll-margin 20)
+(setq scroll-margin 8)
 (setq scroll-conservatively 1000) ;; Scroll one line at the time
 
 ' runnables
 (keychain-refresh-environment)
 
 (setq require-final-newline t)
+
+(modify-syntax-entry ?_ "w") ;; select entire foo_bar_baz instead of just bar
 
 ;; Lukas' extensions
 (defun duplicate-line ()
