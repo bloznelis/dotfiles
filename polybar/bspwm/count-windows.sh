@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 # Counts BSPWM windows in monocle mode
 
