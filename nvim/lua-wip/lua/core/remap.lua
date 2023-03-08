@@ -24,7 +24,7 @@ vim.keymap.set("n", "N", "Nzzzv") -- while searching up
 vim.keymap.set("n", "n", "nzzzv") -- while searching down
 
 -- copy to system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+--vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 -- format
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)

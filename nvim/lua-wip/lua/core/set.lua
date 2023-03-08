@@ -22,6 +22,8 @@ vim.opt.termguicolors = true
 
 vim.opt.wrap = false
 
+vim.opt.clipboard = "unnamedplus" -- Use system clipboard
+
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes" -- A gutter for signs
 
