@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
     -- git
     use("tpope/vim-fugitive")
     use("lewis6991/gitsigns.nvim")
+    use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     --misc
     use("folke/zen-mode.nvim")
