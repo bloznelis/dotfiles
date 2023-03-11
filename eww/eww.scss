@@ -1,0 +1,88 @@
+@import "colors.scss";
+
+*{
+	all: unset;
+	font-family: SF Mono;
+}
+
+/** Window-Count **/
+.window_count {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 2px 0px 0px 10px;
+    color: $foreground;
+}
+
+/** General **/
+.bar_class {
+    background-color: $background;
+    border-radius: 0px;
+    border-color: $background;
+}
+
+.workspaces {
+    margin-left: 10px;
+}
+
+.workspace_buttons {
+    font-size: 23px;
+    margin: 0px 3px 0px 2px;
+    color: $foreground;
+}
+
+/** Widgets **/
+.clock_time_class, .clock_date_class {
+    font-size: 16;
+    font-weight: bold;
+    color: $foreground;
+    margin: 0px 20px 0px 0px;
+}
+
+.clock_time_class {
+    font-weight: bold;
+}
+
+.cal {
+  background-color: $background_dark;
+  font-size: 19;
+  font-weight: bold;
+
+
+.cal-in {
+    padding: 0px 10px 0px 10px;
+    color: $background_dark;
+
+.cal {
+     &.highlight {
+          padding: 15px;
+      }
+
+      padding: 5px 5px 5px 5px;
+      margin-left: 10px;
+    }
+  }
+}
+
+calendar {
+    color: $foreground;
+}
+
+calendar:selected {
+    color: $magenta;
+}
+
+calendar.header {
+    color: $magenta;
+}
+
+calendar.button {
+    color: $blue0;
+}
+
+calendar.highlight {
+    color: $blue_shade1;
+}
+
+calendar:indeterminate {
+    color: $background_highlight;
+}

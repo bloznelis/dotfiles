@@ -1,0 +1,145 @@
+(deflisten workspace "scripts/workspace")
+(deflisten active-windows "scripts/count-windows.sh")
+(defvar wp0 "⊗")
+(defvar wp1 "⊙")
+(defvar wp2 "⊙")
+(defvar wp3 "⊙")
+(defvar wp4 "⊙")
+(defvar wp5 "⊙")
+(defvar wp6 "⊙")
+
+(defpoll clock_h_m :interval "5s" "date +\%H:\%M")
+(defpoll clock_h_m_s :interval "500ms" "date +\%H:\%M:\%S")
+(defpoll clock_y_m_d :interval "10h" "date '+%Y-%m-%d'")
+(defvar time_rev false)
+
+(defpoll calendar_day :interval "1h" "date '+%d'")
+(defpoll calendar_month :interval "20h" "date '+%m'")
+(defpoll calendar_year :interval "20h" "date '+%Y'")
+
+(defwindow main
+          :monitor 0
+          :geometry (geometry :x "0%"
+                       :y "0px"
+                       :width "100%"
+                       :height "30px"
+                       :anchor "top center")
+          :reserve (struts :distance "35px" 
+                           :side "top")
+          :stacking "fg"
+          :wm-ignore false
+          :windowtype "dock"
+  (bar))
+
+(defwidget bar []
+  (box :class "bar_class"
+       :orientation "h"
+  (left)
+  (right)
+    ))
+
+(defwidget left []
+	(box :orientation "h" 
+		 :space-evenly false  
+         :halign "start"
+		 :class "right_modules"
+(workspaces)
+(window-count)
+))
+
+(defwidget right []
+	(box :orientation "h" 
+		 :space-evenly false  
+         :halign "end"
+		 :class "left_modules"
+(clock_module)))
+
+
+(defwidget clock_module []
+  (eventbox :onhover "eww update time_rev=${!time_rev}"
+			:onhoverlost "eww update time_rev=${!time_rev}"
+    (box :class "module" :space-evenly "false" :orientation "h" :spacing "3" 
+      (label :text {time_rev ? clock_h_m_s : clock_h_m} :class "clock_time_class" )
+	  (revealer :transition "slideleft"
+			    :reveal time_rev
+			    :duration "300ms"
+                (button :class "clock_date_class"
+                        :onclick "$HOME/.config/eww/scripts/pop calendar" clock_y_m_d))
+      )))
+
+(defwindow calendar
+	:geometry (geometry :x "-30px" 
+						:y "50px" 
+                        :anchor "top right"
+						:width "270px" 
+						:height "60px")
+(cal))
+
+(defwidget cal []
+	(box :class "cal" :orientation "v"
+	(box :class "cal-in"
+	(calendar :class "cal" 
+              :show-details true
+              :show-day-names true))))
+
+(defwidget window-count []
+  (box
+    :orientation "h"
+    :spacing 5
+    :class "window_count"
+    (label :text "${active-windows}")))
+
+(defwidget workspaces []
+  (box 
+    :orientation "h"
+    :halign "start"
+    :class "workspaces"
+    (box
+      :orientation "h"
+      :spacing 5
+      :space-evenly "false"
+      :class "${workspace}"
+      (eventbox
+        :cursor "pointer"
+        (button 
+          :onclick "bspc desktop -f I"
+          (label
+            :markup wp0 
+            :class "workspace_buttons")))
+      (eventbox
+        :cursor "pointer"
+        (button 
+          :onclick "bspc desktop -f II"
+          (label
+            :markup wp1 
+            :class "workspace_buttons")))
+      (eventbox
+        :cursor "pointer"
+        (button 
+          :onclick "bspc desktop -f III"
+          (label
+            :markup wp2 
+            :class "workspace_buttons")))
+      (eventbox
+        :cursor "pointer"
+        (button 
+          :onclick "bspc desktop -f IV"
+          (label
+            :markup wp3 
+            :class "workspace_buttons")))
+      (eventbox
+        :cursor "pointer"
+        (button 
+          :onclick "bspc desktop -f V"
+          (label
+            :markup wp4 
+            :class "workspace_buttons")))
+      (eventbox
+        :cursor "pointer"
+        (button 
+          :onclick "bspc desktop -f VI"
+          (label
+            :markup wp5 
+            :class "workspace_buttons")))
+    )))
+
