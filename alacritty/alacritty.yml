@@ -14,8 +14,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 12
-    y: 12
+    x: 18
+    y: 18
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -28,9 +28,9 @@ scrolling:
 
 # The definition of color schemes.
 schemes:
-  tokyonight_storm: &tokyonight_storm
+  tokyonight: &tokyonight
     primary:
-      background: '0x24283b'
+      background: '0x1a1b26'
       foreground: '0xc0caf5'
     normal:
       black:   '0x1d202f'
@@ -237,7 +237,7 @@ schemes:
       white:   '0xf9f5d7'
 
 # colors: *solarized_light
-colors: *tokyonight_storm
+colors: *tokyonight
 
 font:
   normal:
