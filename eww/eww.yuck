@@ -20,13 +20,13 @@
 (defwindow main
           :monitor 0
           :geometry (geometry :x "0%"
-                       :y "0px"
-                       :width "100%"
+                       :y "5"
+                       :width "90%"
                        :height "30px"
                        :anchor "top center")
-          :reserve (struts :distance "35px" 
+          :reserve (struts :distance "40px" 
                            :side "top")
-          :stacking "fg"
+          :stacking "bg"
           :wm-ignore false
           :windowtype "dock"
   (bar))

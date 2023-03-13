@@ -15,9 +15,9 @@
 
 /** General **/
 .bar_class {
+    border-radius: 13px;
     background-color: $background;
-    border-radius: 0px;
-    border-color: $background;
+    border-color: $background_dark;
 }
 
 .workspaces {
@@ -35,10 +35,17 @@
     font-size: 16;
     font-weight: bold;
     color: $foreground;
-    margin: 0px 20px 0px 0px;
+}
+
+.clock_date_class {
+    border-radius: 13px;
+    padding: 7px 25px 7px 25px;
+    background-color: $background_dark;
+    font-weight: bold;
 }
 
 .clock_time_class {
+    margin: 0px 20px 0px 0px;
     font-weight: bold;
 }
 
