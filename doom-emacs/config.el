@@ -19,9 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
- (setq doom-font (font-spec :family "JetBrainsMono" :size 14 :weight 'light)
-       doom-variable-pitch-font (font-spec :family "DejaVu Sans" :size 13)
-       doom-unicode-font (font-spec :family "Symbola")
+ (setq doom-font (font-spec :family "JetBrainsMono" :size 14)
+       doom-variable-pitch-font (font-spec :family "Source Sans Pro" :size 14)
        doom-big-font (font-spec :family "JetBrainsMono" :size 24))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -90,8 +89,8 @@
 ;;;;;;;;;;;;;;
 ;;   LSP
 ;;;;;;;;;;;;;
-(map! "C-q" #'lsp-ui-doc-toggle)
-(map! "C-b" #'+lookup/definition) ;; does not work?
+;; (map! "C-q" #'lsp-ui-doc-toggle)
+;; (map! "C-b" #'+lookup/definition) ;; does not work?
 
 (require 'expand-region)
 (map! "C-x C-w" #'er/expand-region)
@@ -105,7 +104,9 @@
       :desc "Eval to comment"
       "m e ;" #'cider-eval-defun-to-comment)
 
-(map! "C-t" #'+vterm/toggle) ;; does not work??
+(with-eval-after-load 'evil-maps
+        (map! "C-t" #'+vterm/toggle) ;; does not work??
+  )
 
 ;; Wrap
 (map! :leader
