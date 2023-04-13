@@ -52,8 +52,31 @@
 		 :space-evenly false  
          :halign "end"
 		 :class "left_modules"
+(cpu)
+(ram)
+(disk)
 (clock_module)))
 
+(defwidget ram []
+  (icon-module :class "ram" :icon "RAM " :visible {EWW_RAM.used_mem_perc != ""}
+    (label :text "${round(EWW_RAM.used_mem_perc, 0)}%")))
+
+(defwidget cpu []
+  (icon-module :class "cpu" :icon "CPU " 
+    (label :text "${round(EWW_CPU.avg, 0)}%"))) 
+
+(defwidget disk []
+  (icon-module :class "disk" :icon "SSD " 
+    (label :text "${round(EWW_DISK["/"].used_perc, 0)}%"))) 
+
+(defwidget icon-module [icon ?class ?visible]
+  (box :class "${class} icon-module"
+       :orientation "h"
+       :halign "end"
+       :space-evenly false
+       :visible {visible ?: true} ; because the argument is optional
+    (label :class "icon-module__icon" :text "${icon}")
+    (children)))
 
 (defwidget clock_module []
   (eventbox :onhover "eww update time_rev=${!time_rev}"
