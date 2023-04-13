@@ -132,3 +132,5 @@
 
 ;; YAML mode for templated yaml files
 (add-to-list 'auto-mode-alist '("\\.yaml.gotmpl\\'" . yaml-mode))
+
+(setq company-idle-delay 0.1)
