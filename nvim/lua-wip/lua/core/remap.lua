@@ -4,6 +4,8 @@ vim.keymap.set("n", "<leader>fs", vim.cmd.write)
 
 vim.keymap.set("v", "gp", [["_dP]]) -- god sent
 
+vim.keymap.set("n", "g;", "`.") -- go to last edit spot
+
 -- buffers
 vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
 vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
