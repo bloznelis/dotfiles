@@ -31,7 +31,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/misc/org/")
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -134,3 +134,28 @@
 (add-to-list 'auto-mode-alist '("\\.yaml.gotmpl\\'" . yaml-mode))
 
 (setq company-idle-delay 0.1)
+
+
+;; Org
+;; Roam
+(use-package! org-roam
+  :custom
+  (org-roam-directory "~/misc/org/roam")
+  :config
+  (org-roam-setup))
+;; Journal
+(use-package! org-journal
+  :ensure t
+  :defer t
+  :init
+  :config
+  (setq org-journal-dir "~/misc/org/journal/"
+        org-journal-date-format "%A, %F"))
+
+(use-package! org
+  :ensure t
+  :defer t
+  :init
+  :config
+  (setq org-agenda-files '("~/misc/org/journal/")
+        org-agenda-file-regexp "\\`[^.].*\\.org'\\|[0-9]+$"))
