@@ -109,6 +109,10 @@ alias k=kubectl
 alias p=pulsarctl
 alias pub="cat ~/.ssh/id_rsa.pub | xsel --clipboard --input "
 alias post="echo 44354 | xsel --clipboard --input"
+function uuid-gen(){
+    uuid | xsel --clipboard --input
+    echo copied uuid to clipboard.
+}
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 function cpath(){
   realpath "$1" | xargs echo -n | xclip -selection clipboard
