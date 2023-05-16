@@ -14,8 +14,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 18
-    y: 18
+    x: 12
+    y: 12
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -235,28 +235,66 @@ schemes:
       magenta: '0xd3869b'
       cyan:    '0x89b482'
       white:   '0xf9f5d7'
+# Kanagawa Alacritty Colors
+    kanagawa: &kanagawa
+      primary:
+        background: '0x1f1f28'
+        foreground: '0xdcd7ba'
 
-# colors: *solarized_light
-colors: *tokyonight
+      normal:
+        black:   '0x090618'
+        red:     '0xc34043'
+        green:   '0x76946a'
+        yellow:  '0xc0a36e'
+        blue:    '0x7e9cd8'
+        magenta: '0x957fb8'
+        cyan:    '0x6a9589'
+        white:   '0xc8c093'
+
+      bright:
+        black:   '0x727169'
+        red:     '0xe82424'
+        green:   '0x98bb6c'
+        yellow:  '0xe6c384'
+        blue:    '0x7fb4ca'
+        magenta: '0x938aa9'
+        cyan:    '0x7aa89f'
+        white:   '0xdcd7ba'
+
+      selection:
+        background: '0x2d4f67'
+        foreground: '0xc8c093'
+
+      indexed_colors:
+        - { index: 16, color: '0xffa066' }
+        - { index: 17, color: '0xff5d62' }
+
+#colors: *solarized_light
+#colors: *gruv_lukas
+colors: *kanagawa
 
 font:
   normal:
-    family: SF Mono
+    family: SFMono Nerd Font Mono
+    #family: JetBrainsMono Nerd Font
     style: Regular
 
   bold:
-    family: SF Mono
+    family: SFMono Nerd Font Mono 
+    #family: JetBrainsMono Nerd Font
     style: Bold
 
   italic:
-    family: SF Mono
+    family: SFMono Nerd Font Mono 
+    #family: JetBrainsMono Nerd Font
     style: Italic
 
   bold_italic:
-    family: SF Mono
+    family: SFMono Nerd Font Mono 
+    #family: JetBrainsMono Nerd Font
     style: Bold Italic
 
-  size: 10
+  size: 11
 
 cursor:
   style:

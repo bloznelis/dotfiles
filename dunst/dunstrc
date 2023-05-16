@@ -22,7 +22,7 @@ progress_bar_min_width = 0
 progress_bar_max_width = 300
 progress_bar_frame_width = 0
 
-font = "SF Mono 10"
+font = "SFMonoNerdFontMono 10"
 icon_theme = Adwaita
 
 format = "<span size='x-large' font_desc='SF Mono 9' weight='Bold' foreground='#c49ec4'>%s</span>\n%b"
