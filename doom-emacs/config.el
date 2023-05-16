@@ -1,5 +1,4 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
@@ -133,29 +132,28 @@
 ;; YAML mode for templated yaml files
 (add-to-list 'auto-mode-alist '("\\.yaml.gotmpl\\'" . yaml-mode))
 
-(setq company-idle-delay 0.1)
+(setq company-idle-delay 0.5)
 
 
 ;; Org
 ;; Roam
+
 (use-package! org-roam
   :custom
   (org-roam-directory "~/misc/org/roam")
   :config
   (org-roam-setup))
+
 ;; Journal
+
 (use-package! org-journal
-  :ensure t
   :defer t
-  :init
   :config
   (setq org-journal-dir "~/misc/org/journal/"
         org-journal-date-format "%A, %F"))
 
 (use-package! org
-  :ensure t
   :defer t
-  :init
   :config
   (setq org-agenda-files '("~/misc/org/journal/")
         org-agenda-file-regexp "\\`[^.].*\\.org'\\|[0-9]+$"))
