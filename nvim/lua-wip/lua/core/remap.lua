@@ -38,7 +38,7 @@ vim.keymap.set("n", "n", "nzzzv") -- while searching down
 --vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 -- format
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
 
 -- replace word under cursor "dialog"
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

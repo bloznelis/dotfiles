@@ -1,5 +1,7 @@
 --vim.opt.guicursor = ""
 
+vim.opt.showmode = false -- Don't show mode in cmdline
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 

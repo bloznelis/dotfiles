@@ -7,20 +7,22 @@ require('telescope').setup({
         mappings = {
             i = {
                 ['<esc>'] = actions.close,
+                ['<c-d>'] = actions.delete_buffer
             },
+            n = {
+                ['<c-d>'] = actions.delete_buffer
+            }
         },
-        -- borderchars = {
-        -- prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-        -- results = { " " },
-        -- preview = { " " },
-        -- },
     },
 })
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+--vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>bb', function() builtin.buffers({ sort_lastused = true }) end, {})
 vim.keymap.set('n', '<leader><leader>', function()
-    builtin.git_files({ show_untracked = true })
+    if pcall(builtin.git_files, { show_untracked = true }) then
+    else
+        builtin.find_files()
+    end
 end)
 vim.keymap.set('n', '<leader>/', function()
     builtin.grep_string({ search = vim.fn.input('Grep > ') })

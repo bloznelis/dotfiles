@@ -1,9 +1,7 @@
-local lualine = require('lualine')
-
-require('lualine').setup {
+require('lualine').setup{
   options = {
     icons_enabled = true,
-    theme = 'tokyonight',
+    theme = 'kanagawa',
     component_separators = '|',
     section_separators = '',
     disabled_filetypes = {
@@ -22,7 +20,7 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {},
-    lualine_c = {'filename'},
+    lualine_c = {{'filename', path = 3}},
     lualine_x = {'diagnostics','branch', 'diff', 'filetype' },
     lualine_y = {},
     lualine_z = {}

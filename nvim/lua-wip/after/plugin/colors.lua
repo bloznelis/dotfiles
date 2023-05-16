@@ -1,40 +1,142 @@
 function Colorize(color)
-    color = color or "tokyonight-night"
+    --color = color or "tokyonight-night"
+    --color = color or "kanagawa-wave"
+    --color = color or "kanagawa-wave"
     vim.cmd.colorscheme(color)
 end
+--Colorize()
 
--- borderless telescope
-require("tokyonight").setup({
-    on_highlights = function(hl, c)
-        local prompt = "#2d3149"
-        hl.TelescopeNormal = {
-            bg = c.bg_dark,
-            fg = c.fg_dark,
-        }
-        hl.TelescopeBorder = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-        }
-        hl.TelescopePromptNormal = {
-            bg = prompt,
-        }
-        hl.TelescopePromptBorder = {
-            bg = prompt,
-            fg = prompt,
-        }
-        hl.TelescopePromptTitle = {
-            bg = prompt,
-            fg = prompt,
-        }
-        hl.TelescopePreviewTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-        }
-        hl.TelescopeResultsTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
+-- Default options:
+require('kanagawa').setup({
+    compile = false,             -- enable compiling the colorscheme
+    undercurl = true,            -- enable undercurls
+    commentStyle = { italic = true },
+    functionStyle = {},
+    keywordStyle = { italic = true},
+    statementStyle = { bold = true },
+    typeStyle = {},
+    transparent = false,         -- do not set background color
+    dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+    terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+    colors = {                   -- add/modify theme and palette colors
+        palette = {},
+        theme = { wave = {}, lotus = {}, dragon = {}, all = {
+            ui = { bg_gutter = "none" }
+        } },
+    },
+    overrides = function(colors) -- add/modify highlights
+        local theme = colors.theme
+        return {
+            Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
+            PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+            PmenuSbar = { bg = theme.ui.bg_m1 },
+            PmenuThumb = { bg = theme.ui.bg_p2 },
+            TelescopeTitle = { fg = theme.ui.special, bold = true },
+            TelescopePromptNormal = { bg = theme.ui.bg_p1 },
+            TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+            TelescopeResultsNormal = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m1 },
+            TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+            TelescopePreviewNormal = { bg = theme.ui.bg_dim },
+            TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
         }
     end,
+    theme = "wave",              -- Load "wave" theme when 'background' option is not set
+    background = {               -- map the value of 'background' option to a theme
+        dark = "wave",           -- try "dragon" !
+        light = "lotus"
+    },
 })
 
-Colorize()
+--vim.cmd.colorscheme("tokyonight-night")
+--vim.cmd.colorscheme("kanagawa-wave")
+--
+
+
+require('rose-pine').setup({
+	--- @usage 'auto'|'main'|'moon'|'dawn'
+	variant = 'dawn',
+	--- @usage 'main'|'moon'|'dawn'
+	dark_variant = 'main',
+	bold_vert_split = false,
+	dim_nc_background = false,
+	disable_background = false,
+	disable_float_background = false,
+	disable_italics = false,
+
+	--- @usage string hex value or named color from rosepinetheme.com/palette
+	groups = {
+		background = 'base',
+		background_nc = '_experimental_nc',
+		panel = 'surface',
+		panel_nc = 'base',
+		border = 'highlight_med',
+		comment = 'muted',
+		link = 'iris',
+		punctuation = 'subtle',
+
+		error = 'love',
+		hint = 'iris',
+		info = 'foam',
+		warn = 'gold',
+
+		headings = {
+			h1 = 'iris',
+			h2 = 'foam',
+			h3 = 'rose',
+			h4 = 'gold',
+			h5 = 'pine',
+			h6 = 'foam',
+		}
+		-- or set all headings at once
+		-- headings = 'subtle'
+	},
+
+	-- Change specific vim highlight groups
+	-- https://github.com/rose-pine/neovim/wiki/Recipes
+	highlight_groups = {
+		ColorColumn = { bg = 'rose' },
+
+		-- Blend colours against the "base" background
+		CursorLine = { bg = 'foam', blend = 10 },
+		StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+	}
+})
+--vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("kanagawa")
+
+-- setup must be called before loading
+--vim.cmd("colorscheme kanagawa")
+
+-- borderless telescope
+--require("tokyonight").setup({
+    --on_highlights = function(hl, c)
+        --local prompt = "#2d3149"
+        --hl.TelescopeNormal = {
+            --bg = c.bg_dark,
+            --fg = c.fg_dark,
+        --}
+        --hl.TelescopeBorder = {
+            --bg = c.bg_dark,
+            --fg = c.bg_dark,
+        --}
+        --hl.TelescopePromptNormal = {
+            --bg = prompt,
+        --}
+        --hl.TelescopePromptBorder = {
+            --bg = prompt,
+            --fg = prompt,
+        --}
+        --hl.TelescopePromptTitle = {
+            --bg = prompt,
+            --fg = prompt,
+        --}
+        --hl.TelescopePreviewTitle = {
+            --bg = c.bg_dark,
+            --fg = c.bg_dark,
+        --}
+        --hl.TelescopeResultsTitle = {
+            --bg = c.bg_dark,
+            --fg = c.bg_dark,
+        --}
+    --end,
+--})

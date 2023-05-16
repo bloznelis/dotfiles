@@ -7,9 +7,13 @@ return require('packer').startup(function(use)
 
     -- colors
     use 'folke/tokyonight.nvim'
+    use 'AlexvZyl/nordic.nvim'
     use 'navarasu/onedark.nvim'
     use 'sainnhe/gruvbox-material'
     use 'shaunsingh/nord.nvim'
+    use 'shaunsingh/solarized.nvim'
+    use "rebelot/kanagawa.nvim"
+    use "rose-pine/neovim"
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
     -- telescope --
@@ -44,16 +48,20 @@ return require('packer').startup(function(use)
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     })
 
+    -- auto closing brackets
+    use("windwp/nvim-autopairs")
+
     -- git
     use("lewis6991/gitsigns.nvim")
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
-    --misc
+    -- misc
     use("folke/zen-mode.nvim")
     use("mbbill/undotree")
     use("preservim/nerdcommenter")
     use("phaazon/hop.nvim")
     use("elkowar/yuck.vim")
+    use("ThePrimeagen/harpoon")
 
     -- LSP
     use {
@@ -78,4 +86,5 @@ return require('packer').startup(function(use)
             { 'rafamadriz/friendly-snippets' }, -- Optional
         }
     }
+    use({'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }})
 end)
