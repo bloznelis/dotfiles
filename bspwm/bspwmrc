@@ -28,10 +28,16 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      false
 
 bspc rule -a gnome-calculator state=floating follow=on
-bspc rule -a floatingTerminal state=floating
+bspc rule -a floatingTerminal state=floating follow=on
 bspc rule -a pomatez state=floating
 bspc rule -a copyq-main state=floating
 bspc rule -a Emacs state=tiled
+
+bspc rule -a "Slack" desktop=VII follow=off
+bspc rule -a "firefox" desktop=I follow=off
+
+slack &
+firefox &
 
 bspc config top_padding 0
 bspc config focus_follows_pointer true
