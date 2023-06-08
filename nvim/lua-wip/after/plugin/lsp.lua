@@ -6,7 +6,7 @@ local lsp = require('lsp-zero').preset({
 
 local telescope = require('telescope.builtin')
 
-lsp.setup_servers({'metals', 'rust_analyzer', 'lua_ls', 'gopls'})
+lsp.setup_servers({'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp'})
 
 require'lspconfig'.lua_ls.setup {
     settings = {

@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>o-", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>fs", vim.cmd.write)
 
@@ -27,6 +28,12 @@ vim.keymap.set("n", "<leader>wv", "<C-w>v<C-w>l")
 vim.keymap.set("n", "<leader>ws", "<C-w>s<C-w>j")
 
 vim.keymap.set("n", "<leader>wc", vim.cmd.q)
+
+-- Leader based tab handling
+vim.keymap.set("n", "<leader>tn", vim.cmd.tabnext)
+vim.keymap.set("n", "<leader>tp", vim.cmd.tabprev)
+vim.keymap.set("n", "<leader>tc", vim.cmd.tabnew)
+vim.keymap.set("n", "<leader>tx", vim.cmd.tabclose)
 
 -- keep cursor in the middle of the screen
 vim.keymap.set("n", "<C-d>", "<C-d>zz") -- while scrolling down

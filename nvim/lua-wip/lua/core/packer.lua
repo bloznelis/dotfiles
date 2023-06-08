@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
     use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-project.nvim' }
 
 
     -- icons
@@ -33,6 +34,9 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+
+    -- clojure
+    use 'Olical/conjure'
 
     -- nvim-tree
     use {
@@ -62,6 +66,7 @@ return require('packer').startup(function(use)
     use("phaazon/hop.nvim")
     use("elkowar/yuck.vim")
     use("ThePrimeagen/harpoon")
+    use("NoahTheDuke/vim-just")
 
     -- LSP
     use {
