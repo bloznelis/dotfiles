@@ -49,6 +49,11 @@ vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
 
 -- replace word under cursor "dialog"
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("v", "<leader>s", [[:s/replace/me/gI<Left><Left><Left>]])
+
+-- surround selection
+vim.keymap.set("v", "<leader>(", "c()<Esc>P")
+vim.keymap.set("v", "<leader>[", "c[]<Esc>P")
 
 -- open init.lua
 vim.keymap.set("n", "<leader>ec", function ()

@@ -21,7 +21,10 @@ require('telescope').setup({
         '~/code',
         --{ path = '~/dev/src5', max_depth = 2 },
       },
-      hidden_files = true, -- default: false
+      --hidden_files = true, -- default: false
+      --on_project_selected = function(prompt_bufnr)
+        --project_actions.change_working_directory(prompt_bufnr, false)
+      --end
     }
   }
 })

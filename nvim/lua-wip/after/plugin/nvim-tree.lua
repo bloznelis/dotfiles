@@ -6,7 +6,10 @@
 vim.opt.termguicolors = true
 
 -- empty setup using defaults
-require("nvim-tree").setup()
+require("nvim-tree").setup({
+  sync_root_with_cwd = true,
+  respect_buf_cwd = true
+})
 
 vim.cmd('nnoremap <leader>op :NvimTreeToggle<CR>')
 vim.cmd('nnoremap <leader>oP :NvimTreeFindFile<CR>')
