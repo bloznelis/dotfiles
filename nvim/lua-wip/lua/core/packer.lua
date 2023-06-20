@@ -6,15 +6,19 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     -- colors
-    use 'folke/tokyonight.nvim'
-    use 'AlexvZyl/nordic.nvim'
-    use 'navarasu/onedark.nvim'
-    use 'sainnhe/gruvbox-material'
-    use 'shaunsingh/nord.nvim'
-    use 'shaunsingh/solarized.nvim'
+    --use 'folke/tokyonight.nvim'
+    --use 'AlexvZyl/nordic.nvim'
+    --use 'navarasu/onedark.nvim'
+    --use 'sainnhe/gruvbox-material'
+    --use 'shaunsingh/nord.nvim'
+    --use 'shaunsingh/solarized.nvim'
     use "rebelot/kanagawa.nvim"
-    use "rose-pine/neovim"
+    --use "rose-pine/neovim"
+
+    -- syntax
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use("elkowar/yuck.vim")
+    use("NoahTheDuke/vim-just")
 
     -- telescope --
     use {
@@ -66,9 +70,7 @@ return require('packer').startup(function(use)
     use("mbbill/undotree")
     use("preservim/nerdcommenter")
     use("phaazon/hop.nvim")
-    use("elkowar/yuck.vim")
     use("ThePrimeagen/harpoon")
-    use("NoahTheDuke/vim-just")
 
     -- LSP
     use {
