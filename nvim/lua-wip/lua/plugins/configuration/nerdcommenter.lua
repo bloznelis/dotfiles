@@ -1,5 +1,6 @@
 return {
   "preservim/nerdcommenter",
+  keys = "<C-_>",
   config = function()
     local api = vim.api
 
