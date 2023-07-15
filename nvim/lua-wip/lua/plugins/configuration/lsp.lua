@@ -1,6 +1,6 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
-  ft = {"lua", "rust", "go", "scala"},
+  ft = {"lua", "rust", "go", "scala", "clojure"},
   config = function()
     local lsp = require('lsp-zero').preset({
       name = 'minimal',

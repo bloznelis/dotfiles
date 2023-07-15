@@ -40,10 +40,9 @@ return {
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
-      'nvim-tree/nvim-web-devicons',       -- optional, for file icons
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
     }
   },
-
 
   -- surround
   'echasnovski/mini.nvim',
@@ -54,11 +53,9 @@ return {
 
   -- git
   "lewis6991/gitsigns.nvim",
-  { 'TimUntersberger/neogit', dependencies = 'nvim-lua/plenary.nvim' },
 
   -- misc
   "folke/zen-mode.nvim",
-  "preservim/nerdcommenter",
   "phaazon/hop.nvim",
   "ThePrimeagen/harpoon",
 
@@ -68,21 +65,21 @@ return {
     branch = 'v1.x',
     dependencies = {
       -- LSP Support
-      { 'neovim/nvim-lspconfig' },       -- Required
+      { 'neovim/nvim-lspconfig' }, -- Required
       --                  {'williamboman/mason.nvim'},           -- Optional
       --                  {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },               -- Required
-      { 'hrsh7th/cmp-nvim-lsp' },           -- Required
-      { 'hrsh7th/cmp-buffer' },             -- Optional
-      { 'hrsh7th/cmp-path' },               -- Optional
-      { 'saadparwaiz1/cmp_luasnip' },       -- Optional
-      { 'hrsh7th/cmp-nvim-lua' },           -- Optional
+      { 'hrsh7th/nvim-cmp' },         -- Required
+      { 'hrsh7th/cmp-nvim-lsp' },     -- Required
+      { 'hrsh7th/cmp-buffer' },       -- Optional
+      { 'hrsh7th/cmp-path' },         -- Optional
+      { 'saadparwaiz1/cmp_luasnip' }, -- Optional
+      { 'hrsh7th/cmp-nvim-lua' },     -- Optional
 
       -- Snippets
-      { 'L3MON4D3/LuaSnip' },                   -- Required
-      { 'rafamadriz/friendly-snippets' },       -- Optional
+      { 'L3MON4D3/LuaSnip' },             -- Required
+      { 'rafamadriz/friendly-snippets' }, -- Optional
     }
   },
   { 'scalameta/nvim-metals',  dependencies = { "nvim-lua/plenary.nvim" } },
