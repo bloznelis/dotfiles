@@ -15,4 +15,5 @@
 
 /* Import color-scheme from `colors` directory */
 
-@import "~/.config/rofi/colors/tokyonight.rasi"
+/* @import "~/.config/rofi/colors/tokyonight.rasi" */
+@import "~/.config/rofi/colors/kanagawa.rasi"
