@@ -10,7 +10,7 @@ vim.keymap.set("n", "g;", "`.") -- go to last edit spot
 -- buffers
 vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
 vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
-vim.keymap.set("n", "<leader>bd", vim.cmd.bd)
+vim.keymap.set("n", "<leader>bx", vim.cmd.bd)
 
 -- move selected regions
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv")
@@ -32,7 +32,7 @@ vim.keymap.set("n", "<leader>wc", vim.cmd.q)
 -- Leader based tab handling
 vim.keymap.set("n", "<leader>tn", vim.cmd.tabnext)
 vim.keymap.set("n", "<leader>tp", vim.cmd.tabprev)
-vim.keymap.set("n", "<leader>tc", vim.cmd.tabnew)
+vim.keymap.set("n", "<leader>tt", vim.cmd.tabnew)
 vim.keymap.set("n", "<leader>tx", vim.cmd.tabclose)
 
 -- keep cursor in the middle of the screen

@@ -119,6 +119,10 @@ function cpath(){
   echo copied.
 }
 alias ssh='TERM=xterm-color ssh'
+# Prettify json and move it to clipboard
+function jsonp(){
+  echo $1 | jq | tee /dev/fd/2 | xclip -selection clipboard 
+}
 
 alias ggrep=grep
 

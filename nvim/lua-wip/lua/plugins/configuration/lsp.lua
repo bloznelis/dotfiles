@@ -1,6 +1,6 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
-  ft = {"lua", "rust", "go", "scala", "clojure"},
+  ft = {"lua", "rust", "go", "scala", "clojure", "python"},
   config = function()
     local lsp = require('lsp-zero').preset({
       name = 'minimal',
@@ -8,7 +8,7 @@ return {
       manage_nvim_cmp = true,
     })
 
-    lsp.setup_servers({ 'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp' })
+    lsp.setup_servers({ 'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp', 'pyright' })
 
     require 'lspconfig'.lua_ls.setup {
       settings = {
