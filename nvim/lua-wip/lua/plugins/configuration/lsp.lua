@@ -1,6 +1,7 @@
 return {
   "VonHeikemen/lsp-zero.nvim",
-  ft = {"lua", "rust", "go", "scala", "clojure", "python"},
+  event = "VeryLazy",
+  -- ft = {"lua", "rust", "go", "scala", "clojure", "python"},
   config = function()
     local lsp = require('lsp-zero').preset({
       name = 'minimal',
@@ -8,7 +9,10 @@ return {
       manage_nvim_cmp = true,
     })
 
-    lsp.setup_servers({ 'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp', 'pyright' })
+   lsp.setup_servers({ 'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp', 'pyright' })
+
+    -- require('mason').setup()
+    -- require('mason-lspconfig').setup()
 
     require 'lspconfig'.lua_ls.setup {
       settings = {
@@ -17,11 +21,19 @@ return {
             globals = { 'vim' }
           }
         },
+      }
+    }
+
+    require 'lspconfig'.rust_analyzer.setup {
+      settings = {
         ["rust-analyzer"] = {
           diagnostics = {
             enable = true,
             disabled = { "unresolved-proc-macro" },
             enableExperimental = true,
+            checkOnSave = {
+              command = "clippy",
+            },
           },
         }
       }
@@ -63,8 +75,6 @@ return {
       end, { 'i', 's' }),
     }
 
-    --cmp_mappings['<Tab>'] = nil
-    --cmp_mappings['<S-Tab>'] = nil
 
     lsp.setup_nvim_cmp({ mapping = cmp_mappings })
 
@@ -91,7 +101,8 @@ return {
       vim.keymap.set("v", "K", require("metals").type_of_range)
 
       vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-      vim.keymap.set("n", "gD", function() telescope.lsp_references() end, opts)
+      vim.keymap.set("n", "gD", function() telescope.lsp_references(require('telescope.themes').get_dropdown({})) end,
+        opts)
       vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
       vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
       vim.keymap.set("n", "<leader>ch", function() vim.lsp.buf.signature_help() end, opts)

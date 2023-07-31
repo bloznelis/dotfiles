@@ -35,3 +35,12 @@ vim.api.nvim_create_autocmd(
   "BufEnter",
   { command = "silent! lcd %:p:h" }
 )
+
+-- trims trailing whiteline
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
+
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
