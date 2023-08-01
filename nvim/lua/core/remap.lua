@@ -59,3 +59,6 @@ vim.keymap.set("v", "<leader>[", "c[]<Esc>P")
 vim.keymap.set("n", "<leader>ec", function ()
    vim.cmd('e' .. "$HOME/.config/nvim/init.lua")
 end)
+
+-- comments
+vim.keymap.set("n", "<C-_>", "gcc")
