@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  keys = { "<leader><leader>", "<leader>bb", "<leader>pp", "<leader>/"},
+  keys = { "<leader><leader>", "<leader>bb", "<leader>pp", "<leader>/" },
   config = function()
     local builtin = require('telescope.builtin')
     local actions = require('telescope.actions')
@@ -35,16 +35,36 @@ return {
     --require'telescope'.extensions.project.project{}
     --require'telescope'.load_extension('project')
 
-    --vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+    local is_inside_work_tree = {}
     vim.keymap.set('n', '<leader>bb', function() builtin.buffers({ sort_lastused = true }) end, {})
     vim.keymap.set('n', '<leader><leader>', function()
-      if pcall(builtin.git_files, { show_untracked = true }) then
-      else
-        builtin.find_files()
+      local cwd = vim.fn.getcwd()
+      if is_inside_work_tree[cwd] == nil then
+        vim.fn.system("git rev-parse --is-inside-work-tree")
+        is_inside_work_tree[cwd] = vim.v.shell_error == 0
       end
+
+      if is_inside_work_tree[cwd] then
+        builtin.git_files(require('telescope.themes').get_dropdown({ show_untracked = true }))
+      else
+        builtin.find_files(require('telescope.themes').get_dropdown())
+      end
+
+
+      -- if pcall(builtin.git_files(require('telescope.themes').get_dropdown({})), { show_untracked = true }) then
+      --   builtin.git_files(require('telescope.themes').get_dropdown({}))
+      -- else
+      --   builtin.find_files(require('telescope.themes').get_dropdown({}))
+      -- end
     end)
     vim.keymap.set('n', '<leader>/', function()
-      builtin.grep_string({ search = vim.fn.input('Grep > ') })
+      local git_dir = vim.fn.system(string.format("git -C %s rev-parse --show-toplevel", vim.fn.expand("%:p:h")))
+      git_dir = string.gsub(git_dir, "\n", "") -- remove newline character from git_dir
+      local opts = {
+        cwd = git_dir,
+      }
+      require('telescope.builtin').live_grep(require('telescope.themes').get_dropdown(opts))
+      -- builtin.grep_string(require('telescope.themes').get_dropdown({ search = vim.fn.input('Grep > ') }))
     end)
     vim.keymap.set('n', '<leader>pp', function()
       require('telescope').extensions.project.project {}
