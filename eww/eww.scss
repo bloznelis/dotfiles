@@ -17,7 +17,8 @@
 .bar_class {
     border-radius: 13px;
     background-color: $background;
-    border-color: $background_dark;
+    // border-color: $background_dark;
+    // border-color: rgba(200, 200, 200, 0.5);
 }
 
 .workspaces {
@@ -37,7 +38,18 @@
     font-size: 16px;
     font-weight: bold;
     color: $foreground;
-    margin: 0px 20px 0px 0px;
+    margin: 0px 15px 0px 0px;
+    font-weight: bold;
+}
+
+.rcd {
+    font-size: 16px;
+    font-weight: bold;
+    color: $foreground;
+    background-color: rgb(0, 0, 0, 0.0);
+    border-radius: 13px;
+    margin: 0px 2px 0px 0px;
+    padding: 0px 10px 0px 20px;
     font-weight: bold;
 }
 
@@ -62,7 +74,7 @@
 }
 
 .cal {
-  background-color: $background_dark;
+  background-color: $background_dark_kanagawa;
   font-size: 19;
   font-weight: bold;
 

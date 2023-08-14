@@ -15,9 +15,12 @@ $foreground_gutter: #3b4261;
 // $magenta2: #ff007c;
 
 // kanagawa
-$background: #1a1a22;
+// $background: #1a1a22;
+$background: rgb(26, 26, 34, 0.7); //#1a1a22
 $background_highlight: #363646;
-$background_dark: #16161D;
+// $background_dark: #16161D;
+$background_dark_kanagawa: #16161D;
+$background_dark: rgb(22, 22, 29, 0.9); //#16161D
 $foreground: #C8C093;
 
 $blue0: #3d59a1;

@@ -16,7 +16,6 @@ eww open main &
 hsetroot -solid "#1a1b26" && nitrogen --restore &
 xsetroot -cursor_name left_ptr &
 
-
 bspc monitor DisplayPort-1 -d I II III IV V VI
 bspc monitor HDMI-A-0 -d VII VIII IX X
 
@@ -47,5 +46,3 @@ bspc config pointer_motion_interval 7ms
 bspc config single_monocle true
 
 alacritty --class floatingTerminal &
-
-emacs --daemon &

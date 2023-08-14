@@ -8,10 +8,9 @@
 (defvar wp5 "⊙")
 (defvar wp6 "⊙")
 
-(defpoll clock_h_m :interval "5s" "date +\%H:\%M")
-(defpoll clock_h_m_s :interval "500ms" "date +\%H:\%M:\%S")
-(defpoll clock_y_m_d :interval "10h" "date '+%Y-%m-%d'")
 (defvar time_rev false)
+(defpoll clock_h_m :interval "5s" "date +\%H:\%M")
+(defpoll clock_y_m_d :interval "500ms" :run-while time_rev "date '+\%H:\%M:\%S @ %Y-%m-%d'")
 
 (defpoll calendar_day :interval "1h" "date '+%d'")
 (defpoll calendar_month :interval "20h" "date '+%m'")
@@ -20,11 +19,11 @@
 (defwindow main
           :monitor 0
           :geometry (geometry :x "0%"
-                       :y "5"
-                       :width "90%"
-                       :height "30px"
+                       :y "8"
+                       :width "99%"
+                       :height "25px"
                        :anchor "top center")
-          :reserve (struts :distance "40px" 
+          :reserve (struts :distance "38px"
                            :side "top")
           :stacking "bg"
           :wm-ignore false
@@ -39,8 +38,8 @@
     ))
 
 (defwidget left []
-	(box :orientation "h" 
-		 :space-evenly false  
+	(box :orientation "h"
+		 :space-evenly false
          :halign "start"
 		 :class "right_modules"
 (workspaces)
@@ -48,8 +47,8 @@
 ))
 
 (defwidget right []
-	(box :orientation "h" 
-		 :space-evenly false  
+	(box :orientation "h"
+		 :space-evenly false
          :halign "end"
 		 :class "left_modules"
 (cpu)
@@ -62,12 +61,16 @@
     (label :text "${round(EWW_RAM.used_mem_perc, 0)}%")))
 
 (defwidget cpu []
-  (icon-module :class "cpu" :icon "CPU " 
-    (label :text "${round(EWW_CPU.avg, 0)}%"))) 
+  (icon-module :class "cpu" :icon "CPU "
+    (label :text "${round(EWW_CPU.avg, 0)}%")))
 
 (defwidget disk []
-  (icon-module :class "disk" :icon "SSD " 
-    (label :text "${round(EWW_DISK["/"].used_perc, 0)}%"))) 
+  (icon-module :class "disk" :icon "SSD "
+    (label :text "${round(EWW_DISK["/"].used_perc, 0)}%")))
+
+(defwidget rcd []
+  (icon-module :class "rcd" :icon ""
+    (label :text "RAM ${round(EWW_RAM.used_mem_perc, 0)}% CPU ${round(EWW_CPU.avg, 0)}% SSD ${round(EWW_DISK["/"].used_perc, 0)}%")))
 
 (defwidget icon-module [icon ?class ?visible]
   (box :class "${class} icon-module"
@@ -79,29 +82,29 @@
     (children)))
 
 (defwidget clock_module []
-  (eventbox :onhover "eww update time_rev=${!time_rev}"
-			:onhoverlost "eww update time_rev=${!time_rev}"
-    (box :class "module" :space-evenly "false" :orientation "h" :spacing "3" 
-      (label :text {time_rev ? clock_h_m_s : clock_h_m} :class "clock_time_class" )
+  (eventbox :onclick "eww update time_rev=${!time_rev}"
+    (box :class "module" :space-evenly "false" :orientation "h" :spacing "3"
+      (label :text clock_h_m :class "clock_time_class" :visible "${!time_rev}")
 	  (revealer :transition "slideleft"
 			    :reveal time_rev
-			    :duration "300ms"
+			    :duration "0ms"
                 (button :class "clock_date_class"
-                        :onclick "$HOME/.config/eww/scripts/pop calendar" clock_y_m_d))
+                        :onclick "eww update time_rev=${!time_rev}"
+                        :onrightclick "$HOME/.config/eww/scripts/pop calendar" clock_y_m_d))
       )))
 
 (defwindow calendar
-	:geometry (geometry :x "-30px" 
-						:y "50px" 
+	:geometry (geometry :x "-30px"
+						:y "50px"
                         :anchor "top right"
-						:width "270px" 
+						:width "270px"
 						:height "60px")
 (cal))
 
 (defwidget cal []
 	(box :class "cal" :orientation "v"
 	(box :class "cal-in"
-	(calendar :class "cal" 
+	(calendar :class "cal"
               :show-details true
               :show-day-names true))))
 
@@ -113,7 +116,7 @@
     (label :text "${active-windows}")))
 
 (defwidget workspaces []
-  (box 
+  (box
     :orientation "h"
     :halign "start"
     :class "workspaces"
@@ -124,45 +127,45 @@
       :class "${workspace}"
       (eventbox
         :cursor "pointer"
-        (button 
+        (button
           :onclick "bspc desktop -f I"
           (label
-            :markup wp0 
+            :markup wp0
             :class "workspace_buttons")))
       (eventbox
         :cursor "pointer"
-        (button 
+        (button
           :onclick "bspc desktop -f II"
           (label
-            :markup wp1 
+            :markup wp1
             :class "workspace_buttons")))
       (eventbox
         :cursor "pointer"
-        (button 
+        (button
           :onclick "bspc desktop -f III"
           (label
-            :markup wp2 
+            :markup wp2
             :class "workspace_buttons")))
       (eventbox
         :cursor "pointer"
-        (button 
+        (button
           :onclick "bspc desktop -f IV"
           (label
-            :markup wp3 
+            :markup wp3
             :class "workspace_buttons")))
       (eventbox
         :cursor "pointer"
-        (button 
+        (button
           :onclick "bspc desktop -f V"
           (label
-            :markup wp4 
+            :markup wp4
             :class "workspace_buttons")))
       (eventbox
         :cursor "pointer"
-        (button 
+        (button
           :onclick "bspc desktop -f VI"
           (label
-            :markup wp5 
+            :markup wp5
             :class "workspace_buttons")))
     )))
 
