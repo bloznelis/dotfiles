@@ -9,7 +9,7 @@ return {
       manage_nvim_cmp = true,
     })
 
-   lsp.setup_servers({ 'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp', 'pyright' })
+    lsp.setup_servers({ 'elmls', 'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp', 'pyright' })
 
     -- require('mason').setup()
     -- require('mason-lspconfig').setup()
@@ -24,20 +24,20 @@ return {
       }
     }
 
-    require 'lspconfig'.rust_analyzer.setup {
-      settings = {
-        ["rust-analyzer"] = {
-          diagnostics = {
-            enable = true,
-            disabled = { "unresolved-proc-macro" },
-            enableExperimental = true,
-            checkOnSave = {
-              command = "clippy",
-            },
-          },
-        }
-      }
-    }
+    -- require 'lspconfig'.rust_analyzer.setup {
+    --   settings = {
+    --     ["rust-analyzer"] = {
+    --       diagnostics = {
+    --         enable = true,
+    --         disabled = { "unresolved-proc-macro" },
+    --         enableExperimental = true,
+    --         checkOnSave = {
+    --           command = "clippy",
+    --         },
+    --       },
+    --     }
+    --   }
+    -- }
 
     local cmp = require('cmp')
     local luasnip = require 'luasnip'
@@ -101,8 +101,11 @@ return {
       vim.keymap.set("v", "K", require("metals").type_of_range)
 
       vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-      vim.keymap.set("n", "gD", function() telescope.lsp_references(require('telescope.themes').get_dropdown({})) end,
-        opts)
+      vim.keymap.set("n", "gD", function()
+          telescope.lsp_references(require('telescope.themes').get_dropdown({}))
+        end,
+        opts
+      )
       vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
       vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
       vim.keymap.set("n", "<leader>ch", function() vim.lsp.buf.signature_help() end, opts)

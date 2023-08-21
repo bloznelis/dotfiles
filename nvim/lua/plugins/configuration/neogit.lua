@@ -1,12 +1,19 @@
 return {
   "NeogitOrg/neogit",
   keys = "<leader>gg",
-  dependencies = 'nvim-lua/plenary.nvim' ,
+  dependencies = {
+    "nvim-lua/plenary.nvim",         -- required
+    "nvim-telescope/telescope.nvim", -- optional
+    "sindrets/diffview.nvim",        -- optional
+  },
   config = function()
     require('neogit').setup({
       disable_commit_confirmation = true,
-      use_magit_keybindings = true,
-      use_telescope = true,
+      mappings = {
+        status = {
+          ["F"] = "PullPopup"
+        }
+      }
     })
     vim.keymap.set("n", "<leader>gg", vim.cmd.Neogit)
   end

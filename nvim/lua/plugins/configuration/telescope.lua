@@ -36,7 +36,7 @@ return {
     --require'telescope'.load_extension('project')
 
     local is_inside_work_tree = {}
-    vim.keymap.set('n', '<leader>bb', function() builtin.buffers({ sort_lastused = true }) end, {})
+    vim.keymap.set('n', '<leader>bb', function() builtin.buffers(require('telescope.themes').get_dropdown({ sort_lastused = true })) end, {})
     vim.keymap.set('n', '<leader><leader>', function()
       local cwd = vim.fn.getcwd()
       if is_inside_work_tree[cwd] == nil then
