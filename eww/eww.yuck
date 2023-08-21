@@ -106,7 +106,10 @@
 	(box :class "cal-in"
 	(calendar :class "cal"
               :show-details true
-              :show-day-names true))))
+              :show-day-names true
+              ;; does not work, {1} returns previous month
+              ; :onclick "firefox --new-tab https://calendar.google.com/calendar/u/1/r/week/{2}/{1}/{0}"
+              ))))
 
 (defwidget window-count []
   (box
