@@ -49,7 +49,8 @@ vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
 
 -- replace word under cursor "dialog"
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("v", "<leader>s", [[:s/replace/me/gI<Left><Left><Left>]])
+-- replace all occurrences of the current selection
+vim.keymap.set("v", "<leader>s", [["hy:%s/<C-r>h//gc<left><left><left>]])
 
 -- surround selection
 vim.keymap.set("v", "<leader>(", "c()<Esc>P")
