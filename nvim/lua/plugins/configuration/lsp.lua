@@ -9,7 +9,7 @@ return {
       manage_nvim_cmp = true,
     })
 
-    lsp.setup_servers({ 'elmls', 'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp', 'pyright' })
+    lsp.setup_servers({ 'terraform_lsp', 'elmls', 'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp', 'pyright' })
 
     -- require('mason').setup()
     -- require('mason-lspconfig').setup()
