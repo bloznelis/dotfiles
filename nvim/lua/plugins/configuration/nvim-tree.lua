@@ -1,9 +1,9 @@
 return {
   "nvim-tree/nvim-tree.lua",
-  keys = {
-    { "<leader>op", "<cmd> NvimTreeToggle<CR>", desc = "NvimTreeToggle"},
-    { "<leader>oP", "<cmd> NvimTreeFindFile<CR>", desc = "NvimTreeFindFile"},
-  },
+  -- keys = {
+  --   { "<leader>op", "<cmd> NvimTreeToggle<CR>", desc = "NvimTreeToggle"},
+  --   { "<leader>oP", "<cmd> NvimTreeFindFile<CR>", desc = "NvimTreeFindFile"},
+  -- },
   config = function()
     -- disable netrw at the very start of your init.lua (strongly advised)
     -- vim.g.loaded_netrw = 1
