@@ -1,6 +1,9 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
+  dependencies = {
+    "arkav/lualine-lsp-progress"
+  },
   config = function()
     require('lualine').setup {
       options = {
@@ -24,8 +27,8 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { },
-        lualine_c = { { 'filename', path = 3 } },
-        lualine_x = { 'location', 'diagnostics', 'branch', 'diff', 'filetype' },
+        lualine_c = { { 'filename', path = 3 }},
+        lualine_x = { 'location', 'diagnostics', 'branch', 'diff', 'filetype', 'lsp_progress'},
         lualine_y = {},
         lualine_z = {}
       },

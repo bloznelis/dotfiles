@@ -22,7 +22,7 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 
@@ -41,6 +41,13 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" },
+  {
+    pattern = { "*.yaml.gotmpl" },
+    command = "set ft=yaml"
+  }
+)
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
