@@ -8,7 +8,7 @@ killall flameshot
 sxhkd &
 copyq -s main &
 picom --config /home/lukas/.config/picom/config-bspwm.conf &
-easyeffects --gapplication-service &
+#easyeffects --gapplication-service &
 flameshot &
 ~/.config/polybar/bspwm/launch.sh &
 eww open main &
