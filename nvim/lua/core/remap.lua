@@ -3,11 +3,14 @@ vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>o-", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>fs", vim.cmd.write)
 
-vim.keymap.set("v", "gp", [["_dP]]) -- god sent
+vim.keymap.set("v", "gp", "P") -- god sent
 
 vim.keymap.set("n", "g;", "`.") -- go to last edit spot
 
 -- buffers
+vim.keymap.set("n", "<C-j>", vim.cmd.bp)
+vim.keymap.set("n", "<C-k>", vim.cmd.bn)
+vim.keymap.set("n", "<C-x>", vim.cmd.bd)
 vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
 vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
 vim.keymap.set("n", "<leader>bx", vim.cmd.bd)
@@ -19,7 +22,7 @@ vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv")
 -- misc
 vim.keymap.set("n", "J", "mzJ`z") -- same as default J, but cursor stays in place
 
--- Leader based window handling
+-- windows
 vim.keymap.set("n", "<leader>wh", "<C-w>h")
 vim.keymap.set("n", "<leader>wj", "<C-w>j")
 vim.keymap.set("n", "<leader>wk", "<C-w>k")
@@ -27,9 +30,12 @@ vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>wv", "<C-w>v<C-w>l")
 vim.keymap.set("n", "<leader>ws", "<C-w>s<C-w>j")
 
+vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l")
+vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j")
+
 vim.keymap.set("n", "<leader>wc", vim.cmd.q)
 
--- Leader based tab handling
+-- tabs
 vim.keymap.set("n", "<leader>tn", vim.cmd.tabnext)
 vim.keymap.set("n", "<leader>tp", vim.cmd.tabprev)
 vim.keymap.set("n", "<leader>tt", vim.cmd.tabnew)
@@ -63,3 +69,6 @@ end)
 
 -- comments
 vim.keymap.set("n", "<C-_>", "gcc")
+
+-- Don't include newline at the end of the line
+vim.keymap.set("n", "<End>", "g_")
