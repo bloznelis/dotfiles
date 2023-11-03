@@ -1,96 +1,19 @@
 return {
-  "VonHeikemen/lsp-zero.nvim",
+  "neovim/nvim-lspconfig",
   event = "VeryLazy",
-  -- ft = {"lua", "rust", "go", "scala", "clojure", "python"},
+  dependencies = {
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
+    "saadparwaiz1/cmp_luasnip"
+  },
   config = function()
-    local lsp = require('lsp-zero').preset({
-      name = 'minimal',
-      set_lsp_keymaps = true,
-      manage_nvim_cmp = true,
-    })
-
-    lsp.setup_servers({ 'ocamllsp', 'terraform_lsp', 'elmls', 'metals', 'rust_analyzer', 'lua_ls', 'gopls', 'clojure_lsp', 'pyright' })
-
-    -- require('mason').setup()
-    -- require('mason-lspconfig').setup()
-
-    require 'lspconfig'.lua_ls.setup {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = { 'vim' }
-          }
-        },
-      }
-    }
-
-    -- require 'lspconfig'.rust_analyzer.setup {
-    --   settings = {
-    --     ["rust-analyzer"] = {
-    --       diagnostics = {
-    --         enable = true,
-    --         disabled = { "unresolved-proc-macro" },
-    --         enableExperimental = true,
-    --         checkOnSave = {
-    --           command = "clippy",
-    --         },
-    --       },
-    --     }
-    --   }
-    -- }
-
-    local luasnip = require 'luasnip'
-    luasnip.config.setup {}
-
+    local lspconfig = require('lspconfig')
+    local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
     local cmp = require('cmp')
-    local cmp_action = require('lsp-zero').cmp_action()
-
-    cmp.setup({
-      mapping = cmp.mapping.preset.insert({
-        ['<C-d>'] = function()
-          if cmp.visible_docs() then
-            cmp.close_docs()
-          else
-            cmp.open_docs()
-          end
-        end,
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete {},
-        ['<CR>'] = cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Insert,
-          select = true,
-        },
-        ['<Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { 'i', 's' }),
-      }),
-      view = {
-        docs = {
-          auto_open = true
-        }
-      }
-    })
-
-    -- (Optional) Configure lua language server for neovim
-    lsp.nvim_workspace()
 
     local signs = {
       Error = " ",
@@ -104,46 +27,101 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 
-    lsp.on_attach(function(client, bufnr)
-      local opts = { buffer = bufnr, remap = false }
-      local telescope = require('telescope.builtin')
+    vim.api.nvim_create_autocmd('LspAttach', {
+      desc = 'LSP actions',
+      callback = function(event)
+        local opts = { buffer = event.buf, remap = false }
+        local telescope = require('telescope.builtin')
 
-      -- metals specific
-      vim.keymap.set("v", "K", require("metals").type_of_range)
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set("n", "gD", function()
+            telescope.lsp_references(require('telescope.themes').get_dropdown({}))
+          end,
+          opts
+        )
+        vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
+        vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+        vim.keymap.set("n", "<leader>cd", function() vim.diagnostic.open_float() end, opts)
+        vim.keymap.set("n", "<leader>c[", function() vim.diagnostic.goto_next() end, opts)
+        vim.keymap.set("n", "<leader>c]", function() vim.diagnostic.goto_prev() end, opts)
+        vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set("n", "ge", function()
+          vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+        end, opts)
+        vim.keymap.set("n", "gE", function()
+          vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+        end, opts)
+        vim.keymap.set("n", "<leader>cr", function() vim.lsp.buf.rename() end, opts)
+        vim.keymap.set("i", "<C-p>", function() vim.lsp.buf.signature_help() end, opts)
+      end
+    })
 
-      vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-      vim.keymap.set("n", "gD", function()
-          telescope.lsp_references(require('telescope.themes').get_dropdown({}))
+    -- load in some snippets
+    require("luasnip.loaders.from_vscode").lazy_load()
+
+    cmp.setup({
+      sources = {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'path' },
+      },
+      mapping = cmp.mapping.preset.insert({
+        ['<C-d>'] = function()
+          if cmp.visible_docs() then
+            cmp.close_docs()
+          else
+            cmp.open_docs()
+          end
         end,
-        opts
-      )
-      vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
-      vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-      vim.keymap.set("n", "<leader>cd", function() vim.diagnostic.open_float() end, opts)
-      vim.keymap.set("n", "<leader>c[", function() vim.diagnostic.goto_next() end, opts)
-      vim.keymap.set("n", "<leader>c]", function() vim.diagnostic.goto_prev() end, opts)
-      vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
-      vim.keymap.set("n", "ge", function()
-        vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
-      end, opts)
-      vim.keymap.set("n", "gE", function()
-        vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
-      end, opts)
-      vim.keymap.set("n", "<leader>cr", function() vim.lsp.buf.rename() end, opts)
-      vim.keymap.set("i", "<C-p>", function() vim.lsp.buf.signature_help() end, opts)
-    end)
-
-    lsp.setup()
-
-    vim.diagnostic.config({
-      virtual_text = true,
-      float = {
-        focusable = false,
-        style = 'minimal',
-        source = 'always',
-        header = '',
-        prefix = '',
+        ['<Tab>'] = cmp.mapping.select_next_item(),
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        ['<C-Space>'] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.close()
+          else
+            cmp.complete()
+          end
+        end, { 'i', 's' }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+      }),
+      snippet = {
+        expand = function(args)
+          require('luasnip').lsp_expand(args.body)
+        end,
       },
     })
+
+    -- #### Server specific configuration ####
+    -- ### Lua ###
+    lspconfig.lua_ls.setup({
+      settings = {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT'
+          },
+          diagnostics = {
+            globals = { 'vim' },
+          },
+          workspace = {
+            library = {
+              vim.env.VIMRUNTIME,
+            }
+          }
+        }
+      }
+    })
+
+    -- ### OCaml ###
+    lspconfig.ocamllsp.setup {}
+
+    -- ### Go ###
+    lspconfig.gopls.setup {}
+
+    -- ### Clojure ###
+    lspconfig.clojure_lsp.setup {}
+
+    -- ### Rust ###
+    lspconfig.rust_analyzer.setup {}
   end
 }
