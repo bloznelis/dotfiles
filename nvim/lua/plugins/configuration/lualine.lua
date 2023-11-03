@@ -1,9 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  tag = '0.1.3',
   dependencies = {
-    'nvim-lua/plenary.nvim',
     'arkav/lualine-lsp-progress',
     'nvim-tree/nvim-web-devicons'
   },
