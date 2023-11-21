@@ -1,2 +1,3 @@
 # Lukas' dotfiles
-![kanagawa-1](https://github.com/bloznelis/dotfiles/assets/33397865/efcb59f7-6c7b-40ba-926c-4f4139df1c29)
+
+![kanagawa-r](https://github.com/bloznelis/dotfiles/assets/33397865/5ac39d96-bc7a-4337-8130-9ddcee7ed51c)
