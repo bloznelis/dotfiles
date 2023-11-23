@@ -48,10 +48,6 @@ return {
       },
     })
 
-    --vim.cmd.colorscheme("tokyonight-night")
-    --vim.cmd.colorscheme("kanagawa-lotus")
     vim.cmd.colorscheme("kanagawa")
   end
-
-
 }

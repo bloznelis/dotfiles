@@ -21,6 +21,7 @@ return {
     vim.g["conjure#mapping#eval_comment_root_form"] = "e;"
     vim.g["conjure#mapping#eval_buf"] = "eb"
     vim.g["conjure#mapping#eval_visual"] = "E"
+    vim.g["conjure#mapping#doc_word"] = "ek"
 
     vim.g["conjure#mapping#log_toggle"] = "el"
     vim.g["conjure#mapping#doc_word"] = ""

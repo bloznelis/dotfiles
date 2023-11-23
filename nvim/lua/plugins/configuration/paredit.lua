@@ -1,5 +1,6 @@
 return {
   "julienvincent/nvim-paredit",
+  ft = { "clojure" },
   config = function()
     local paredit = require("nvim-paredit")
     local api = require("nvim-paredit.api")
@@ -71,19 +72,19 @@ return {
         ["<localleader>o"] = { paredit.api.raise_form, "Raise form" },
         ["<localleader>O"] = { paredit.api.raise_element, "Raise element" },
 
-        ["E"] = {
-          paredit.api.move_to_next_element,
-          "Jump to next element tail",
-          -- by default all keybindings are dot repeatable
-          repeatable = false,
-          mode = { "n", "x", "o", "v" },
-        },
-        ["B"] = {
-          paredit.api.move_to_prev_element,
-          "Jump to previous element head",
-          repeatable = false,
-          mode = { "n", "x", "o", "v" },
-        },
+        -- ["E"] = {
+        --   paredit.api.move_to_next_element,
+        --   "Jump to next element tail",
+        --   -- by default all keybindings are dot repeatable
+        --   repeatable = false,
+        --   mode = { "n", "x", "o", "v" },
+        -- },
+        -- ["B"] = {
+        --   paredit.api.move_to_prev_element,
+        --   "Jump to previous element head",
+        --   repeatable = false,
+        --   mode = { "n", "x", "o", "v" },
+        -- },
 
         -- These are text object selection keybindings which can used with standard `d, y, c`, `v`
         ["af"] = {

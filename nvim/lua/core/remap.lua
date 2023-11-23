@@ -72,3 +72,7 @@ vim.keymap.set("n", "<C-_>", "gcc")
 
 -- Don't include newline at the end of the line
 vim.keymap.set("n", "<End>", "g_")
+
+--quickfix
+vim.keymap.set("n", "<C-n>", vim.cmd.cn)
+vim.keymap.set("n", "<C-p>", vim.cmd.cp)

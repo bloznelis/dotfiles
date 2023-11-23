@@ -67,6 +67,11 @@ return {
       require('telescope').extensions.project.project {}
     end)
 
+    vim.keymap.set('n', '<leader><CR>', function()
+      require('telescope.builtin').resume(themes.get_dropdown())
+    end)
+
+
     require('telescope').load_extension('fzf')
     require('telescope').load_extension('project')
   end
