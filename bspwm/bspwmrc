@@ -1,22 +1,24 @@
 #! /bin/sh
 
 killall sxhkd
-killall copyq
+# killall copyq
+killall greenclip
 killall picom
 killall flameshot
 
 sxhkd &
-copyq -s main &
+# copyq -s main &
+greenclip daemon &
 picom --config /home/lukas/.config/picom/config-bspwm.conf &
 flameshot &
-~/.config/polybar/bspwm/launch.sh &
+# ~/.config/polybar/bspwm/launch.sh &
 eww open main &
 ~/.config/dunst/launch.sh &
 hsetroot -solid "#1a1b26" && nitrogen --restore &
 xsetroot -cursor_name left_ptr &
 
 bspc monitor DisplayPort-1 -d I II III IV V VI
-bspc monitor HDMI-A-0 -d VII VIII IX X
+# bspc monitor HDMI-A-0 -d VII VIII IX X
 
 bspc config border_width         2
 bspc config window_gap           7
