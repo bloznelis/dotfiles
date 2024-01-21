@@ -25,7 +25,7 @@
                        :anchor "top center")
           :reserve (struts :distance "38px"
                            :side "top")
-          :stacking "bg"
+          :stacking "fg"
           :wm-ignore false
           :windowtype "dock"
   (bar))

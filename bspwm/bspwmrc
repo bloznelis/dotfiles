@@ -1,5 +1,8 @@
 #! /bin/sh
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+wmname LD3D
+
 killall sxhkd
 # killall copyq
 killall greenclip
@@ -33,7 +36,7 @@ bspc rule -a pomatez state=floating
 bspc rule -a copyq-main state=floating
 bspc rule -a Emacs state=tiled
 
-bspc rule -a "Slack" desktop=VII follow=off
+bspc rule -a "Slack" desktop=VI follow=off
 bspc rule -a "firefox" desktop=I follow=off
 
 bspc config top_padding 0

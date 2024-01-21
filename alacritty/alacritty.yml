@@ -7,8 +7,8 @@ env:
   # available, otherwise `xterm-256color` is used.
   TERM: 'xterm-256color'
 
-
 window:
+  # opacity: 0.90
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
@@ -280,17 +280,17 @@ font:
     style: Regular
 
   bold:
-    family: SFMono Nerd Font Mono 
+    family: SFMono Nerd Font Mono
     #family: JetBrainsMono Nerd Font
     style: Bold
 
   italic:
-    family: SFMono Nerd Font Mono 
+    family: SFMono Nerd Font Mono
     #family: JetBrainsMono Nerd Font
     style: Italic
 
   bold_italic:
-    family: SFMono Nerd Font Mono 
+    family: SFMono Nerd Font Mono
     #family: JetBrainsMono Nerd Font
     style: Bold Italic
 
