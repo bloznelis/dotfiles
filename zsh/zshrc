@@ -103,25 +103,27 @@ source $ZSH/oh-my-zsh.sh
 
 eval `keychain --eval --agents ssh id_rsa --quiet`
 
+alias ssh='TERM=xterm-color ssh'
 alias vim="nvim"
 alias i3cfg="nvim /home/lukas/.config/i3/config"
 alias k=kubectl
 alias p=pulsarctl
 alias pub="cat ~/.ssh/id_rsa.pub | xsel --clipboard --input "
 alias post="echo 44354 | xsel --clipboard --input"
-function uuid-gen(){
-    uuid | xsel --clipboard --input
-    echo copied uuid to clipboard.
-}
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+
 function cpath(){
-  realpath "$1" | xargs echo -n | xclip -selection clipboard
+  realpath "$1" | xargs echo -n | tr -d '\n' | xclip -selection clipboard
   echo copied.
 }
-alias ssh='TERM=xterm-color ssh'
 # Prettify json and move it to clipboard
 function jsonp(){
   echo $1 | jq | tee /dev/fd/2 | xclip -selection clipboard
+}
+
+function uuid-gen(){
+    uuid | tr -d '\n' | xsel --clipboard --input
+    echo copied uuid to clipboard.
 }
 
 alias ggrep=grep
