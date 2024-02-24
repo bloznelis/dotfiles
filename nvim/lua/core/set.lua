@@ -1,5 +1,3 @@
---vim.opt.guicursor = ""
-
 vim.opt.showmode = false -- Don't show mode in cmdline
 
 vim.opt.nu = true
@@ -31,6 +29,7 @@ vim.opt.signcolumn = "yes" -- A gutter for signs
 
 vim.opt.updatetime = 250
 
+-- change the working dir to the current file's dir
 vim.api.nvim_create_autocmd(
   "BufEnter",
   { command = "silent! lcd %:p:h" }
