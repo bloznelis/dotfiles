@@ -1,6 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
-  ft = { "clojure", "rust", "lua", "go", "ocaml" },
+  ft = { "clojure", "rust", "lua", "go", "ocaml", "python" },
+  -- event = VeryLazy,
   config = function()
     local lspconfig = require('lspconfig')
 
@@ -24,7 +25,8 @@ return {
 
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "gD", function()
-            telescope.lsp_references(require('telescope.themes').get_dropdown({}))
+          vim.lsp.buf.references()
+            -- telescope.lsp_references(require('telescope.themes').get_dropdown({}))
           end,
           opts
         )
@@ -70,6 +72,9 @@ return {
         }
       }
     })
+
+    -- ### Python ###
+    lspconfig.pyright.setup {}
 
     -- ### OCaml ###
     lspconfig.ocamllsp.setup {}

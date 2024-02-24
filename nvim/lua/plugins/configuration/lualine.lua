@@ -28,7 +28,7 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = {},
-        lualine_c = { { 'filename', path = 3 } },
+        lualine_c = { { 'filename', path = 1 } },
         lualine_x = { 'location', 'diagnostics', 'branch', 'diff', 'filetype', 'lsp_progress' },
         lualine_y = {},
         lualine_z = {}
