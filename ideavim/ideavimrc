@@ -1,0 +1,67 @@
+let g:mapleader = "\<space>"
+
+nmap <Leader>ee :e ~/.ideavimrc<CR>
+nmap <Leader>rr :action IdeaVim.ReloadVimRc.reload<CR>
+
+" plugins
+set easymotion
+set commentary
+set NERDTree
+set ideajoin
+
+" Common
+set showmode
+set incsearch
+set nu
+set smartcase
+set relativenumber
+set number
+set scrolloff=8 " 8 lines above/below cursor when scrolling
+
+" Clipboard
+set clipboard=unnamedplus
+set clipboard^=ideaput
+
+" Easymotion
+map gs<Leader> <Plug>(easymotion-bd-f)
+
+nnoremap <Leader>q :action CloseContent<CR>
+nnoremap <leader>c :action CommentByLineComment<CR>
+
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+
+nmap <s-TAB> <Action>(PreviousTab)
+nmap <TAB> <Action>(NextTab)
+
+nmap <leader>h :action Back<cr>
+nmap <leader>l :action Forward<cr>
+nmap <leader>L :action RecentLocations<cr>
+nmap <leader>u :action FindUsages<cr>
+nmap <leader>C :action CallHierarchy<cr>
+nmap <leader>c :action GotoClass<cr>
+nmap <leader>s :action GotoSymbol<cr>
+nmap <leader>m :action ToggleBookmark<cr>
+nmap <leader>; :action FileStructurePopup<cr>
+nmap <leader>t :action GotoTest<cr>
+nmap <leader>p :action JumpToLastWindow<cr>
+nmap <leader>ff <Action>(ReformatCode)
+nmap <leader>fo <Action>(OptimizeImports)
+map <leader>op :NERDTreeFind<cr>
+nmap <leader>of <Action>(GotoFile)
+map <leader>cr <Action>(RenameElement)
+nmap gi <Action>(GotoImplementation)
+
+nmap zc <Action>(CollapseRegion)
+nmap zo <Action>(ExpandRegion)
+"====================================================================
+" Buffers
+"====================================================================
+nmap <C-j> :bp<CR>
+nmap <C-k> :bn<CR>
+nmap <C-x> :bd<cr>
+
+" List buffers and select.
+nnoremap <silent> <leader>bl :ls<cr>:buffer<space>
