@@ -1,5 +1,6 @@
 return {
   "scalameta/nvim-metals",
+  ft = { 'scala' },
   config = function()
     local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
     local metals_config = require("metals").bare_config()
