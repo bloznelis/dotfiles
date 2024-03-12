@@ -47,9 +47,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz") -- while scrolling up
 vim.keymap.set("n", "N", "Nzzzv") -- while searching up
 vim.keymap.set("n", "n", "nzzzv") -- while searching down
 
--- copy to system clipboard
---vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-
 -- format
 vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
 
