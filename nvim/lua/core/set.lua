@@ -1,3 +1,6 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 vim.opt.showmode = false -- Don't show mode in cmdline
 
 vim.opt.nu = true
@@ -9,6 +12,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
+vim.opt.breakindent = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -20,6 +24,13 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 vim.opt.wrap = true
 
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
@@ -28,6 +39,7 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes" -- A gutter for signs
 
 vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
 
 -- change the working dir to the current file's dir
 vim.api.nvim_create_autocmd(
@@ -47,6 +59,15 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" },
     command = "set ft=yaml"
   }
 )
+
+-- Highlight when yanking
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking',
+  group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true

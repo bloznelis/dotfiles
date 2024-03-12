@@ -1,9 +1,11 @@
 return {
   "neovim/nvim-lspconfig",
-  ft = { "clojure", "rust", "lua", "go", "ocaml", "python" },
+  ft = { "clojure", "rust", "lua", "go", "ocaml", "python", "gleam" },
   -- event = VeryLazy,
   config = function()
     local lspconfig = require('lspconfig')
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local signs = {
       Error = " ",
@@ -25,7 +27,7 @@ return {
 
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "gD", function()
-          vim.lsp.buf.references()
+            vim.lsp.buf.references()
             -- telescope.lsp_references(require('telescope.themes').get_dropdown({}))
           end,
           opts
@@ -56,6 +58,7 @@ return {
     -- #### Server specific configuration ####
     -- ### Lua ###
     lspconfig.lua_ls.setup({
+      capabilities = capabilities,
       settings = {
         Lua = {
           runtime = {
@@ -74,18 +77,33 @@ return {
     })
 
     -- ### Python ###
-    lspconfig.pyright.setup {}
+    lspconfig.pyright.setup({
+      capabilities = capabilities,
+    })
 
     -- ### OCaml ###
-    lspconfig.ocamllsp.setup {}
+    lspconfig.ocamllsp.setup({
+      capabilities = capabilities,
+    })
 
     -- ### Go ###
-    lspconfig.gopls.setup {}
+    lspconfig.gopls.setup({
+      capabilities = capabilities,
+    })
 
     -- ### Clojure ###
-    lspconfig.clojure_lsp.setup {}
+    lspconfig.clojure_lsp.setup({
+      capabilities = capabilities,
+    })
 
     -- ### Rust ###
-    lspconfig.rust_analyzer.setup {}
+    lspconfig.rust_analyzer.setup({
+      capabilities = capabilities,
+    })
+
+    -- ### Gleam ###
+    lspconfig.gleam.setup({
+      capabilities = capabilities,
+    })
   end
 }

@@ -1,6 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
-  event = "VeryLazy",
+  event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua",
@@ -11,7 +11,6 @@ return {
     "saadparwaiz1/cmp_luasnip"
   },
   config = function()
-    local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
     local cmp = require('cmp')
 
     -- load in some snippets
@@ -71,6 +70,28 @@ return {
       snippet = {
         expand = function(args)
           require('luasnip').lsp_expand(args.body)
+        end,
+      },
+      formatting = {
+        fields = { "abbr", "menu", "kind" },
+        format = function(entry, vim_item)
+          -- limit completion width
+          local MAX_LABEL_WIDTH = 35
+          local label = vim_item.abbr
+          local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+          if truncated_label ~= label then
+            vim_item.abbr = truncated_label .. '…'
+          end
+
+          -- set a name for each source
+          vim_item.menu = ({
+            buffer = "[Buffer]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[Snippet]",
+            nvim_lua = "[Lua]",
+          })[entry.source.name]
+
+          return vim_item
         end,
       },
     })
