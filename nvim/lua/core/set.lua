@@ -39,7 +39,6 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes" -- A gutter for signs
 
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
 
 -- change the working dir to the current file's dir
 vim.api.nvim_create_autocmd(
