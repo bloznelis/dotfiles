@@ -22,6 +22,10 @@ set scrolloff=8 " 8 lines above/below cursor when scrolling
 set clipboard=unnamedplus
 set clipboard^=ideaput
 
+" Move visual blocks up and down
+xmap <M-k> :m '<-2<CR>gv=gv
+xmap <M-j> :m '>+1<CR>gv=gv
+
 " Easymotion
 map gs<Leader> <Plug>(easymotion-bd-f)
 
