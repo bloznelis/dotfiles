@@ -10,7 +10,7 @@ vim.keymap.set("n", "g;", "`.") -- go to last edit spot
 -- buffers
 vim.keymap.set("n", "<C-j>", vim.cmd.bp)
 vim.keymap.set("n", "<C-k>", vim.cmd.bn)
-vim.keymap.set("n", "<C-x>", vim.cmd.bd)
+vim.keymap.set("n", "<leader>x", vim.cmd.bd)
 vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
 vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
 vim.keymap.set("n", "<leader>bx", vim.cmd.bd)
@@ -74,5 +74,5 @@ vim.keymap.set("n", "<End>", "g_")
 vim.keymap.set("n", "<C-n>", vim.cmd.cn)
 vim.keymap.set("n", "<C-p>", vim.cmd.cp)
 
---select
-vim.keymap.set("n", "<C-a>", "gg<S-v>G")
+--select all
+vim.keymap.set("n", "<leader>a", "gg<S-v>G")
