@@ -72,8 +72,9 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5e5847,bold,underline"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	zsh-autosuggestions
+  git
+  zsh-autosuggestions
+  fzf-tab
 )
 
 source $ZSH/oh-my-zsh.sh
