@@ -3,9 +3,8 @@ vim.g.maplocalleader = " "
 vim.keymap.set("n", "<leader>o-", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>fs", vim.cmd.write)
 
-vim.keymap.set("v", "gp", "P") -- god sent
-
-vim.keymap.set("n", "g;", "`.") -- go to last edit spot
+vim.keymap.set("v", "p", "P")
+vim.keymap.set("v", "p", "P")
 
 -- buffers
 vim.keymap.set("n", "<C-j>", vim.cmd.bp)
