@@ -65,7 +65,7 @@ nmap zo <Action>(ExpandRegion)
 "====================================================================
 nmap <C-j> :bp<CR>
 nmap <C-k> :bn<CR>
-nmap <C-x> :bd<cr>
+nmap <leader>x :bd<CR>
 
 " List buffers and select.
 nnoremap <silent> <leader>bl :ls<cr>:buffer<space>

@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = '0.1.5',
+  tag = '0.1.6',
   keys = { "<leader><leader>", "<leader>bb", "<leader>pp", "<leader>/" },
   dependencies = {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
@@ -48,18 +48,18 @@ return {
       end
 
       if is_inside_work_tree[cwd] then
-        builtin.git_files(themes.get_dropdown({ show_untracked = true }))
+        builtin.git_files(themes.get_dropdown({ show_untracked = true, previewer = false }))
       else
-        builtin.find_files(themes.get_dropdown())
+        builtin.find_files(themes.get_dropdown({ previewer = false }))
       end
     end)
 
     vim.keymap.set('n', '<leader>/', function()
-      require('telescope.builtin').live_grep(themes.get_dropdown())
+      require('telescope.builtin').live_grep(themes.get_dropdown({ previewer = false }))
     end)
 
     vim.keymap.set('v', '<leader>/', function()
-      require('telescope.builtin').grep_string(themes.get_dropdown())
+      require('telescope.builtin').grep_string(themes.get_dropdown({ previewer = false }))
     end)
 
     vim.keymap.set('n', '<leader>pp', function()
@@ -67,7 +67,7 @@ return {
     end)
 
     vim.keymap.set('n', '<leader><CR>', function()
-      require('telescope.builtin').resume(themes.get_dropdown())
+      require('telescope.builtin').resume(themes.get_dropdown({ previewer = false }))
     end)
 
 

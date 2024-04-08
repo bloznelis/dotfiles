@@ -73,5 +73,4 @@ vim.keymap.set("n", "<End>", "g_")
 vim.keymap.set("n", "<C-n>", vim.cmd.cn)
 vim.keymap.set("n", "<C-p>", vim.cmd.cp)
 
---select all
 vim.keymap.set("n", "<leader>a", "gg<S-v>G")
