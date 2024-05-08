@@ -12,6 +12,7 @@ return {
 
     require('telescope').setup({
       defaults = {
+        path_display = { "smart" },
         mappings = {
           i = {
             ['<esc>'] = actions.close,
@@ -48,18 +49,23 @@ return {
       end
 
       if is_inside_work_tree[cwd] then
-        builtin.git_files(themes.get_dropdown({ show_untracked = true, previewer = false }))
+        builtin.git_files(themes.get_dropdown({ show_untracked = true, previewer = true }))
       else
-        builtin.find_files(themes.get_dropdown({ previewer = false }))
+        builtin.find_files(themes.get_dropdown({ previewer = true }))
       end
     end)
 
+
+    vim.keymap.set('n', '<leader>.', function()
+      builtin.find_files(themes.get_dropdown({ previewer = true }))
+    end)
+
     vim.keymap.set('n', '<leader>/', function()
-      require('telescope.builtin').live_grep(themes.get_dropdown({ previewer = false }))
+      require('telescope.builtin').live_grep(themes.get_dropdown({ previewer = true }))
     end)
 
     vim.keymap.set('v', '<leader>/', function()
-      require('telescope.builtin').grep_string(themes.get_dropdown({ previewer = false }))
+      require('telescope.builtin').grep_string(themes.get_dropdown({ previewer = true }))
     end)
 
     vim.keymap.set('n', '<leader>pp', function()
@@ -67,7 +73,7 @@ return {
     end)
 
     vim.keymap.set('n', '<leader><CR>', function()
-      require('telescope.builtin').resume(themes.get_dropdown({ previewer = false }))
+      require('telescope.builtin').resume(themes.get_dropdown({ previewer = true }))
     end)
 
 

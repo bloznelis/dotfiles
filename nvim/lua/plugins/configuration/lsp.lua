@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  ft = { "clojure", "rust", "lua", "go", "ocaml", "python", "gleam" },
+  ft = { "clojure", "rust", "lua", "go", "ocaml", "python", "scala", "java", "sbt" },
   -- event = VeryLazy,
   config = function()
     local lspconfig = require('lspconfig')
@@ -23,15 +23,9 @@ return {
       desc = 'LSP actions',
       callback = function(event)
         local opts = { buffer = event.buf, remap = true }
-        local telescope = require('telescope.builtin')
 
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set("n", "gD", function()
-            vim.lsp.buf.references()
-            -- telescope.lsp_references(require('telescope.themes').get_dropdown({}))
-          end,
-          opts
-        )
+        vim.keymap.set("n", "gD", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
         vim.keymap.set("n", "<leader>cd", function() vim.diagnostic.open_float() end, opts)
@@ -52,6 +46,15 @@ return {
         end, opts)
         vim.keymap.set("n", "<leader>cr", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+        vim.keymap.set("n", "<leader>aa", vim.diagnostic.setqflist)
+        vim.keymap.set("n", "<leader>ae", function()
+          vim.diagnostic.setqflist({ severity = "E" })
+        end)
+        vim.keymap.set("n", "<leader>aw", function()
+          vim.diagnostic.setqflist({ severity = "W" })
+        end)
+
       end
     })
 
@@ -98,11 +101,6 @@ return {
 
     -- ### Rust ###
     lspconfig.rust_analyzer.setup({
-      capabilities = capabilities,
-    })
-
-    -- ### Gleam ###
-    lspconfig.gleam.setup({
       capabilities = capabilities,
     })
   end

@@ -37,8 +37,8 @@ nnoremap gE :action GotoPreviousError<CR>
 
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 
-nmap <s-TAB> <Action>(PreviousTab)
-nmap <TAB> <Action>(NextTab)
+nmap <TAB> <Action>(PreviousTab)
+nmap <s-TAB> <Action>(NextTab)
 
 nmap <leader>h :action Back<cr>
 nmap <leader>l :action Forward<cr>
@@ -57,6 +57,9 @@ map <leader>op :NERDTreeFind<cr>
 nmap <leader>of <Action>(GotoFile)
 map <leader>cr <Action>(RenameElement)
 nmap gi <Action>(GotoImplementation)
+
+imap <C-p> <Action>(ParameterInfo)
+imap <C-h> <Action>(ParameterInfo)
 
 nmap zc <Action>(CollapseRegion)
 nmap zo <Action>(ExpandRegion)

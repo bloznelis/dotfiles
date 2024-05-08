@@ -70,3 +70,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+
+
+vim.api.nvim_create_autocmd('Filetype', {
+  group = vim.api.nvim_create_augroup('setIndent', { clear = true }),
+  pattern = { 'scala' },
+  command = 'setlocal shiftwidth=4 tabstop=4'
+})

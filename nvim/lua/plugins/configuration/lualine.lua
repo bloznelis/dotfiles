@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
+  event = "UiEnter",
   dependencies = {
     'arkav/lualine-lsp-progress',
     'nvim-tree/nvim-web-devicons'
@@ -9,7 +9,7 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'kanagawa',
+        -- theme = 'kanagawa',
         component_separators = '|',
         section_separators = '',
         disabled_filetypes = {

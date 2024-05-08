@@ -3,7 +3,7 @@ return {
   keys = { "<leader>nn" },
   version = "*",
   opts = {
-    width = 120,
+    width = 130,
     mappings = {
       enabled = true,
       toggle = "<leader>nn",
