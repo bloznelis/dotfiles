@@ -57,7 +57,8 @@ return {
 
 
     vim.keymap.set('n', '<leader>.', function()
-      builtin.find_files(themes.get_dropdown({ previewer = true }))
+      local lsp_root = vim.lsp.buf.list_workspace_folders()
+      builtin.find_files({ cwd = lsp_root[1] })
     end)
 
     vim.keymap.set('n', '<leader>/', function()
@@ -76,6 +77,7 @@ return {
       require('telescope.builtin').resume(themes.get_dropdown({ previewer = true }))
     end)
 
+    vim.keymap.set("n", "gws", require("telescope.builtin").lsp_dynamic_workspace_symbols)
 
     require('telescope').load_extension('fzf')
     require('telescope').load_extension('project')

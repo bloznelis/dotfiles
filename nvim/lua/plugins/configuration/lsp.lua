@@ -54,7 +54,6 @@ return {
         vim.keymap.set("n", "<leader>aw", function()
           vim.diagnostic.setqflist({ severity = "W" })
         end)
-
       end
     })
 

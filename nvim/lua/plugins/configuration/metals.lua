@@ -7,6 +7,9 @@ return {
 
     metals_config.on_attach = function(client, bufnr)
       vim.keymap.set("v", "K", require('metals').type_of_range)
+      -- if client.server_capabilities.inlayHintProvider then
+      --   vim.lsp.buf.inlay_hint(bufnr, true)
+      -- end
     end
 
     vim.api.nvim_create_autocmd("FileType", {
