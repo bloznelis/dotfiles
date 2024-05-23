@@ -17,7 +17,7 @@ return {
       callback = function()
         metals_config.settings = {
           showImplicitArguments = true,
-          showInferredType = true
+          -- showInferredType = true
         }
 
         metals_config.init_options.statusBarProvider = "off"

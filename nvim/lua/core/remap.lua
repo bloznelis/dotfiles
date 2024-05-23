@@ -22,17 +22,8 @@ vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z") -- same as default J, but cursor stays in place
 
 -- windows
-vim.keymap.set("n", "<leader>wh", "<C-w>h")
-vim.keymap.set("n", "<leader>wj", "<C-w>j")
-vim.keymap.set("n", "<leader>wk", "<C-w>k")
-vim.keymap.set("n", "<leader>wl", "<C-w>l")
-vim.keymap.set("n", "<leader>wv", "<C-w>v<C-w>l")
-vim.keymap.set("n", "<leader>ws", "<C-w>s<C-w>j")
-
 vim.keymap.set("n", "<C-w>v", "<C-w>v<C-w>l")
 vim.keymap.set("n", "<C-w>s", "<C-w>s<C-w>j")
-
-vim.keymap.set("n", "<leader>wc", vim.cmd.q)
 
 -- tabs
 vim.keymap.set("n", "<leader>tn", vim.cmd.tabnext)
