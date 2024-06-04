@@ -1,5 +1,9 @@
 return {
   'notjedi/nvim-rooter.lua',
-  enabled = false,
-  config = function() require('nvim-rooter').setup() end
+  enabled = true,
+  config = function()
+    require('nvim-rooter').setup {
+      rooter_patterns = { '.root' }
+    }
+  end
 }

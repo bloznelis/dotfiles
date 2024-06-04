@@ -51,7 +51,7 @@ vim.keymap.set("v", "<leader>[", "c[]<Esc>P")
 
 -- open init.lua
 vim.keymap.set("n", "<leader>ec", function ()
-   vim.cmd('e' .. "$HOME/.config/nvim/init.lua")
+    require('telescope.builtin').find_files({ cwd = "$HOME/.config/nvim" })
 end)
 
 -- comments

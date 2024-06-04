@@ -19,6 +19,7 @@ return {
           showImplicitArguments = true,
           -- showInferredType = true
         }
+        metals_config.find_root_dir_max_project_nesting = 2
 
         metals_config.init_options.statusBarProvider = "off"
         metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
