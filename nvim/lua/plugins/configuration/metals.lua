@@ -7,6 +7,7 @@ return {
 
     metals_config.on_attach = function(client, bufnr)
       vim.keymap.set("v", "K", require('metals').type_of_range)
+      vim.keymap.set("n", "<leader>fo", require('metals').organize_imports)
       -- if client.server_capabilities.inlayHintProvider then
       --   vim.lsp.buf.inlay_hint(bufnr, true)
       -- end
@@ -16,9 +17,12 @@ return {
       pattern = { "scala", "sbt", "java" },
       callback = function()
         metals_config.settings = {
-          showImplicitArguments = true,
-          -- showInferredType = true
+          -- serverProperties = { "-Dmetals.enable-best-effort=true" },
+          -- showImplicitArguments = true,
+          -- showInferredType = true,
+          -- showImplicitConversionsAndClasses = true
         }
+
         metals_config.find_root_dir_max_project_nesting = 2
 
         metals_config.init_options.statusBarProvider = "off"

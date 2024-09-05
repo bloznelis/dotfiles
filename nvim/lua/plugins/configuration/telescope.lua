@@ -1,6 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = '0.1.6',
+  tag = '0.1.8',
   keys = { "<leader><leader>", "<leader>bb", "<leader>pp", "<leader>/", "<leader>" },
   dependencies = {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
@@ -13,7 +13,7 @@ return {
 
     require('telescope').setup({
       defaults = {
-        path_display = { "smart" },
+        path_display = { "truncate" },
         mappings = {
           i = {
             ['<esc>'] = actions.close,
@@ -39,6 +39,11 @@ return {
 
 
     local themes = require('telescope.themes')
+
+
+    vim.keymap.set('n', '<leader>cc', function()
+      builtin.commands({ sort_lastused = true })
+    end, {})
 
     vim.keymap.set('n', '<leader>bb', function()
       builtin.buffers(themes.get_dropdown({ sort_lastused = true }))

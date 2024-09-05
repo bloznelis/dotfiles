@@ -20,7 +20,6 @@ return {
         ls.parser.parse_snippet({trig = "for-comp"}, [[
 for
   $1 <- $2
-  $3 <- $4
-yield $5
+yield ()
 ]])
 }

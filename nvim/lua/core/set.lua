@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.autochdir = false
+
 vim.opt.showmode = false -- Don't show mode in cmdline
 
 -- highlight cursorline
@@ -73,7 +75,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
-
 
 vim.api.nvim_create_autocmd('Filetype', {
   group = vim.api.nvim_create_augroup('setIndent', { clear = true }),

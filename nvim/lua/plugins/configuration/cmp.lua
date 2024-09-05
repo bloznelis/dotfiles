@@ -110,11 +110,6 @@ return {
       },
       sorting = {
         comparators = {
-          cmp.config.compare.exact,
-          cmp.config.compare.length,
-          cmp.config.compare.score,
-          cmp.config.compare.recently_used,
-          cmp.config.compare.kind,
           lspkind_comparator({
             kind_priority = {
               Field = 11,
@@ -144,6 +139,11 @@ return {
               Value = 1,
             },
           }),
+          cmp.config.compare.exact,
+          cmp.config.compare.length,
+          cmp.config.compare.score,
+          cmp.config.compare.recently_used,
+          cmp.config.compare.kind,
           label_comparator
         },
       },

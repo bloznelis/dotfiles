@@ -8,6 +8,8 @@ set easymotion
 set commentary
 set NERDTree
 set ideajoin
+set sneak
+set surround
 
 " Common
 set showmode
