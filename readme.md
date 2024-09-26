@@ -1,3 +1,3 @@
-# Lukas' dotfiles
+# dotfiles
 
-![wp](https://github.com/bloznelis/dotfiles/assets/33397865/b0828259-4825-4648-9836-87c0656576f6)
+![wip](https://github.com/user-attachments/assets/502fb1b0-79e5-457a-b3ff-534c887aff40)
