@@ -8,7 +8,7 @@
 ### Link configuration
 `stow home --dotfiles`
 
-### zsh specifics
+### zsh
 Sets up zsh with oh-my-zsh
 
 1. sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
@@ -17,3 +17,8 @@ Sets up zsh with oh-my-zsh
 4. `stow home --dotfiles`
 6. `sudo pacman -Syu openssh keychain`
 7. `ssh-keygen -t ed2551`
+
+### tmux
+1. git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+2. open tmux
+3. C-b I (to install tmux plugins)
