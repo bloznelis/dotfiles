@@ -8,23 +8,22 @@ killall sxhkd
 killall greenclip
 killall picom
 killall flameshot
+killall crowabar
 
+nitrogen --restore &
 sxhkd &
-# copyq -s main &
 greenclip daemon &
-picom --config /home/lukas/.config/picom/config-bspwm.conf &
+picom --config /home/lukas/.config/picom/config.conf &
 flameshot &
-# ~/.config/polybar/bspwm/launch.sh &
-eww open main &
+# eww open main &
 ~/.config/dunst/launch.sh &
-hsetroot -solid "#1a1b26" && nitrogen --restore &
 xsetroot -cursor_name left_ptr &
 
-bspc monitor DisplayPort-1 -d I II III IV V VI
+bspc monitor eDP-1 -d I II III IV V VI
 # bspc monitor HDMI-A-0 -d VII VIII IX X
 
 bspc config border_width         2
-bspc config window_gap           7
+bspc config window_gap           0
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -33,8 +32,6 @@ bspc config gapless_monocle      false
 bspc rule -a gnome-calculator state=floating follow=on
 bspc rule -a floatingTerminal state=floating follow=on
 bspc rule -a pomatez state=floating
-bspc rule -a copyq-main state=floating
-bspc rule -a Emacs state=tiled
 
 bspc rule -a "Slack" desktop=VI follow=off
 bspc rule -a "firefox" desktop=I follow=off
@@ -49,3 +46,5 @@ bspc config pointer_motion_interval 7ms
 bspc config single_monocle true
 
 alacritty --class floatingTerminal &
+
+crowbar &

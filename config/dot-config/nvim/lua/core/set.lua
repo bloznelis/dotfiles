@@ -1,8 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.g.autochdir = false
-
 vim.opt.showmode = false -- Don't show mode in cmdline
 
 -- highlight cursorline

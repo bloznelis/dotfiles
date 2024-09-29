@@ -27,7 +27,6 @@ return {
       extensions = {
         project = {
           base_dirs = {
-            '~/work',
             '~/code',
           },
           -- on_project_selected = function(prompt_bufnr)
@@ -74,7 +73,8 @@ return {
     end)
 
     vim.keymap.set('n', '<leader>pp', function()
-      require('telescope').extensions.project.project {}
+      require 'telescope'.extensions.projects.projects {}
+      -- require('telescope').extensions.project.project {}
     end)
 
     vim.keymap.set('n', '<leader><CR>', function()
@@ -85,6 +85,7 @@ return {
     vim.keymap.set("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols)
 
     require('telescope').load_extension('fzf')
-    require('telescope').load_extension('project')
+    require('telescope').load_extension('projects')
+    -- require('telescope').load_extension('project')
   end
 }

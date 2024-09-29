@@ -102,16 +102,13 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 
-eval `keychain --eval --agents ssh id_rsa --quiet`
+eval `keychain --eval --agents ssh id_ed25519 --quiet`
 
 alias ssh='TERM=xterm-color ssh'
 alias vim="nvim"
-alias i3cfg="nvim /home/lukas/.config/i3/config"
 alias k=kubectl
 alias p=pulsarctl
-alias pub="cat ~/.ssh/id_rsa.pub | xsel --clipboard --input "
 alias post="echo 44354 | xsel --clipboard --input"
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 
 function cpath(){
   realpath "$1" | xargs echo -n | tr -d '\n' | xclip -selection clipboard
@@ -135,13 +132,5 @@ alias serialize='echo "Serialization is DTO -> String"'
 
 alias cal='cal -m'
 
-#GCloud CLI
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/lukas/misc/gcloud/google-cloud-sdk/path.zsh.inc' ]; then . '/home/lukas/misc/gcloud/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/lukas/misc/gcloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/lukas/misc/gcloud/google-cloud-sdk/completion.zsh.inc'; fi
-
 export PATH="$PATH:/home/lukas/.local/share/coursier/bin"
+export PATH="$PATH:/home/lukas/.cargo/bin/"
