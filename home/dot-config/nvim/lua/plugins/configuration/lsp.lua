@@ -49,10 +49,10 @@ return {
 
         vim.keymap.set("n", "<leader>aa", vim.diagnostic.setqflist)
         vim.keymap.set("n", "<leader>ae", function()
-          vim.diagnostic.setqflist({ severity = "E" })
+          vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.ERROR })
         end)
         vim.keymap.set("n", "<leader>aw", function()
-          vim.diagnostic.setqflist({ severity = "W" })
+          vim.diagnostic.setqflist({ severity = vim.diagnostic.severity.WARN })
         end)
       end
     })

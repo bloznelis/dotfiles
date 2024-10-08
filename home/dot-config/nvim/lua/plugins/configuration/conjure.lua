@@ -9,7 +9,7 @@ return {
       group = vim.api.nvim_create_augroup("conjure_log_disable_lsp", { clear = true }),
       pattern = { "conjure-log-*" },
       callback = function(event)
-        vim.diagnostic.disable(event.buf)
+        vim.diagnostic.enable(false, event.buf)
       end,
       desc = "Conjure Log disable LSP diagnostics",
     })

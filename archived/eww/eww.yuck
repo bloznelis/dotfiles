@@ -1,5 +1,7 @@
 (deflisten workspace "scripts/workspace")
 (deflisten active-windows "scripts/count-windows.sh")
+(deflisten window-labels "/home/lukas/scripts/titles.clj")
+
 (defvar wp0 "⊗")
 (defvar wp1 "⊙")
 (defvar wp2 "⊙")
@@ -19,11 +21,11 @@
 (defwindow main
           :monitor 0
           :geometry (geometry :x "0%"
-                       :y "8"
-                       :width "99%"
+                       :y "5"
+                       :width "33%"
                        :height "25px"
                        :anchor "top center")
-          :reserve (struts :distance "38px"
+          :reserve (struts :distance "32px"
                            :side "top")
           :stacking "fg"
           :wm-ignore false
@@ -44,6 +46,7 @@
 		 :class "right_modules"
 (workspaces)
 (window-count)
+; (window-labels)
 ))
 
 (defwidget right []
@@ -83,7 +86,7 @@
 
 (defwidget clock_module []
   (eventbox :onclick "eww update time_rev=${!time_rev}"
-    (box :class "module" :space-evenly "false" :orientation "h" :spacing "3"
+    (box :class "module" :space-evenly "false" :orientation "h"
       (label :text clock_h_m :class "clock_time_class" :visible "${!time_rev}")
 	  (revealer :transition "slideleft"
 			    :reveal time_rev
@@ -117,6 +120,13 @@
     :spacing 5
     :class "window_count"
     (label :text "${active-windows}")))
+
+(defwidget window-labels []
+  (box
+    :orientation "h"
+    :spacing 5
+    :class "window_labels"
+    (label :text "${window-labels}")))
 
 (defwidget workspaces []
   (box
