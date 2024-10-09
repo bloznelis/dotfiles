@@ -46,6 +46,6 @@ bspc config single_monocle true
 
 alacritty --class floatingTerminal &
 
-crowbar &
+/home/lukas/.cargo/bin/crowbar &
 
 xset r rate 300 40

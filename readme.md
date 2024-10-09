@@ -5,7 +5,7 @@
 ### Packages for fresh install
 `sudo pacman -Syu neovim, ripgrep, fzf, openssh, keychain, rofi, dunst, bspwm, sxhkd, picom, tmux`
 
-### Link configuration
+### Link home
 `stow home --dotfiles`
 
 ### zsh

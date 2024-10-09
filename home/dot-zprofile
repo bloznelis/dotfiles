@@ -1,3 +1,4 @@
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
   exec startx
+  xset r rate 300 40
 fi
