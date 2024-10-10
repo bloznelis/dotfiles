@@ -35,7 +35,7 @@ Print
 	 flameshot gui
 
 super + n
-  /home/lukas/scripts/lang-change.sh
+  /home/lukas/dotfiles/scripts/change-lang.clj
 
 # rotate current node orientation
 super + r
