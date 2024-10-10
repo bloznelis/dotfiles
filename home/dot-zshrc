@@ -134,3 +134,9 @@ alias cal='cal -m'
 
 export PATH="$PATH:/home/lukas/.local/share/coursier/bin"
 export PATH="$PATH:/home/lukas/.cargo/bin/"
+
+function video2gif() {
+  ffmpeg -y -i "${1}" -vf fps=${3:-24},scale=${2:-640}:-1:flags=lanczos,palettegen "${1}.png"
+  ffmpeg -i "${1}" -i "${1}.png" -filter_complex "fps=${3:-24},scale=${2:-640}:-1:flags=lanczos[x];[x][1:v]paletteuse" "${1}".gif
+  rm "${1}.png"
+}
