@@ -44,10 +44,10 @@ vim.opt.signcolumn = "yes" -- A gutter for signs
 vim.opt.updatetime = 250
 
 -- change the working dir to the current file's dir
-vim.api.nvim_create_autocmd(
-  "BufEnter",
-  { command = "silent! lcd %:p:h" }
-)
+-- vim.api.nvim_create_autocmd(
+--   "BufEnter",
+--   { command = "silent! lcd %:p:h" }
+-- )
 
 -- trims trailing whiteline
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {

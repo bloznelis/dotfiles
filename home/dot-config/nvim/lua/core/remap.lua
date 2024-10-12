@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.keymap.set("n", "<leader>o-", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>fs", vim.cmd.write)
 
 vim.keymap.set("v", "p", "P")
@@ -54,8 +53,11 @@ vim.keymap.set("n", "<leader>ec", function ()
     require('telescope.builtin').find_files({ cwd = "$HOME/.config/nvim" })
 end)
 
--- comments
-vim.keymap.set("n", "<C-_>", "gcc")
+-- copy and comment current line
+vim.keymap.set("n", "gm", ":t .-1 <BAR> :norm gcc <CR> j^")
+
+-- copy and comment current selection
+vim.keymap.set("v", "gm", ":t '> <BAR> :norm gvgc<CR>}")
 
 -- Don't include newline at the end of the line
 vim.keymap.set("n", "<End>", "g_")

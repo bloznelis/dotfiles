@@ -1,8 +1,8 @@
 return {
   'stevearc/oil.nvim',
-  keys = {
-    { "<leader>op", "<cmd>Oil<CR>", desc = "Oil open file" },
-  },
+  -- keys = {
+  --   { "<leader>op", "<cmd>Oil<CR>", desc = "Oil open file" },
+  -- },
   opts = {
     default_file_explorer = true,
     keymaps = {
