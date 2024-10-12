@@ -1,3 +1,2 @@
-nvim/lua-wip/plugin/packer_compiled.lua
-nvim/spell
-nvim/lazy-lock.json
+home/dot-config/nvim/lazy-lock.json
+home/dot-config/nvim/spell
