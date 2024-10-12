@@ -13,14 +13,15 @@ return {
 
         return {
           bg_dim = darken(colors.base3, 3),
-          bg_dimer = darken(colors.base3, 5)
+          bg_dimer = darken(colors.base3, 5),
+          bg_dimerer = darken(colors.base3, 6)
         }
       end,
       on_highlights = function(colors, color)
         return {
           SpellBad = { strikethrough = false },
-          TelescopePromptNormal = { bg = colors.bg_dim },
-          TelescopePromptBorder = { fg = colors.bg_dim, bg = colors.bg_dim },
+          TelescopePromptNormal = { bg = colors.bg_dimerer },
+          TelescopePromptBorder = { fg = colors.bg_dimerer, bg = colors.bg_dimerer },
           TelescopeResultsNormal = { fg = colors.base00, bg = colors.bg_dim },
           TelescopeResultsBorder = { fg = colors.bg_dim, bg = colors.bg_dim },
           TelescopePreviewNormal = { bg = colors.bg_dimer },
