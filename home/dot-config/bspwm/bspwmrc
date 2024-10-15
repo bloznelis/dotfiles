@@ -7,7 +7,7 @@ killall sxhkd
 killall greenclip
 killall picom
 killall flameshot
-killall crowbar
+killall krowbar
 
 nitrogen --restore &
 sxhkd &
@@ -20,6 +20,9 @@ xsetroot -cursor_name left_ptr &
 bspc monitor DisplayPort-0 -d web code III IV V VI
 bspc monitor HDMI-A-1 -d VII VIII IX
 
+bspc config top_padding 0
+bspc config bottom_padding 0
+
 bspc config border_width         2
 bspc config window_gap           0
 
@@ -31,8 +34,8 @@ bspc rule -a gnome-calculator state=floating follow=on
 bspc rule -a floatingTerminal state=floating follow=on
 bspc rule -a pomatez state=floating
 
-bspc rule -a "Slack" desktop=VI follow=off
-bspc rule -a "firefox" desktop=I follow=off
+bspc rule -a "Slack" desktop=VII follow=off
+bspc rule -a "Vivaldi-stable" desktop=I follow=off
 
 bspc config top_padding 0
 bspc config bottom_padding 0
@@ -46,6 +49,6 @@ bspc config single_monocle true
 
 alacritty --class floatingTerminal &
 
-/home/lukas/.cargo/bin/crowbar &
+/home/lukas/.cargo/bin/krowbar --debug --disabled-widgets network &
 
 xset r rate 300 40

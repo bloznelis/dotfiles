@@ -119,6 +119,10 @@ function jsonp(){
   echo $1 | jq | tee /dev/fd/2 | xclip -selection clipboard
 }
 
+function get-token(){
+  xclip -selection clipboard -o | jq -r .body.access_token | tee /dev/fd/2 | xclip -selection clipboard
+}
+
 function uuid-gen(){
     uuid | tr -d '\n' | xsel --clipboard --input
     echo copied uuid to clipboard.
@@ -140,3 +144,9 @@ function video2gif() {
   ffmpeg -i "${1}" -i "${1}.png" -filter_complex "fps=${3:-24},scale=${2:-640}:-1:flags=lanczos[x];[x][1:v]paletteuse" "${1}".gif
   rm "${1}.png"
 }
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/lukas/google-cloud-sdk/path.zsh.inc' ]; then . '/home/lukas/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/lukas/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/lukas/google-cloud-sdk/completion.zsh.inc'; fi

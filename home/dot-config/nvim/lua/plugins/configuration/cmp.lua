@@ -77,8 +77,6 @@ return {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
           else
             fallback()
           end
@@ -87,8 +85,6 @@ return {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
           else
             fallback()
           end
@@ -102,6 +98,7 @@ return {
           end
         end, { 'i', 's' }),
         ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+        ['<C-c>'] = cmp.mapping.close(),
       }),
       snippet = {
         expand = function(args)
@@ -113,26 +110,26 @@ return {
           lspkind_comparator({
             kind_priority = {
               Field = 11,
+              Function = 11,
+              Method = 11,
               Property = 11,
               Constant = 10,
               Enum = 10,
               EnumMember = 10,
               Event = 10,
-              Function = 10,
-              Method = 10,
               Operator = 10,
               Reference = 10,
               Struct = 10,
               Variable = 9,
+              Module = 8,
               File = 8,
               Folder = 8,
               Class = 5,
               Color = 5,
-              Module = 5,
-              Keyword = 2,
+              Keyword = 3,
+              Snippet = 2,
               Constructor = 1,
               Interface = 1,
-              Snippet = 0,
               Text = 1,
               TypeParameter = 1,
               Unit = 1,
@@ -151,7 +148,7 @@ return {
         fields = { "abbr", "menu", "kind" },
         format = function(entry, vim_item)
           -- limit completion width
-          local MAX_LABEL_WIDTH = 35
+          local MAX_LABEL_WIDTH = 50
           local label = vim_item.abbr
           local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
           if truncated_label ~= label then
