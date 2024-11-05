@@ -5,15 +5,15 @@ return {
   dependencies = {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { 'nvim-telescope/telescope-project.nvim' },
+    { 'nvim-telescope/telescope-ui-select.nvim' }
   },
   config = function()
     local builtin = require('telescope.builtin')
     local actions = require('telescope.actions')
-    local project_actions = require("telescope._extensions.project.actions")
 
     require('telescope').setup({
       defaults = {
-        path_display = { "truncate" },
+        path_display = { "smart" },
         mappings = {
           i = {
             ['<esc>'] = actions.close,
@@ -25,6 +25,9 @@ return {
         },
       },
       extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_ivy {},
+        },
         project = {
           base_dirs = {
             '~/code',
@@ -53,7 +56,7 @@ return {
     end)
 
     vim.keymap.set('n', '<leader><leader>', function()
-      builtin.find_files()
+      builtin.find_files({ ignore_case = true })
     end)
 
     -- vim.keymap.set('n', '<leader>.', function()
@@ -86,6 +89,7 @@ return {
 
     require('telescope').load_extension('fzf')
     require('telescope').load_extension('projects')
+    require("telescope").load_extension("ui-select")
     -- require('telescope').load_extension('project')
   end
 }

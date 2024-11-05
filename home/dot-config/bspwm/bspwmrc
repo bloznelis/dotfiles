@@ -49,6 +49,6 @@ bspc config single_monocle true
 
 alacritty --class floatingTerminal &
 
-/home/lukas/.cargo/bin/krowbar --debug --disabled-widgets network &
+/home/lukas/.cargo/bin/krowbar --disabled-widgets network &
 
 xset r rate 300 40

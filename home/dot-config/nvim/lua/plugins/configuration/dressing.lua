@@ -1,4 +1,6 @@
 return {
   'stevearc/dressing.nvim',
-  opts = {},
+  setup = function()
+    require("dressing").setup()
+  end
 }

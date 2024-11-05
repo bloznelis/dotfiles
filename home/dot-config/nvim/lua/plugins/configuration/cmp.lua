@@ -109,13 +109,13 @@ return {
         comparators = {
           lspkind_comparator({
             kind_priority = {
-              Field = 11,
-              Function = 11,
-              Method = 11,
-              Property = 11,
-              Constant = 10,
-              Enum = 10,
-              EnumMember = 10,
+              Field = 20,
+              Function = 16,
+              Enum = 15,
+              EnumMember = 15,
+              Method = 14,
+              Property = 12,
+              Constant = 11,
               Event = 10,
               Operator = 10,
               Reference = 10,

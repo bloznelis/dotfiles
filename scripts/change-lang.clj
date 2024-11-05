@@ -1,4 +1,4 @@
-#! /usr/bin/bb
+#! bb
 (require
  '[babashka.process :refer [shell]]
  '[clojure.string :as s])
