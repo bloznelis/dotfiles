@@ -75,6 +75,7 @@ plugins=(
   git
   zsh-autosuggestions
   fzf-tab
+  zsh-fzf-history-search
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -1,5 +1,6 @@
 return {
   "NeogitOrg/neogit",
+  enabled = true,
   keys = "<leader>gg",
   -- commit = "a32f99a83d636ea7cd62cda6e24d76d14e5579ba",
   dependencies = {
