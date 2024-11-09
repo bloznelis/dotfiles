@@ -24,6 +24,7 @@ return {
       callback = function(event)
         local opts = { buffer = event.buf, remap = true }
 
+        vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
         vim.keymap.set("n", "gD", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
