@@ -18,7 +18,7 @@ return {
       pattern = { "scala", "sbt", "java" },
       callback = function()
         metals_config.settings = {
-          -- serverProperties = { "-Dmetals.enable-best-effort=true" },
+          serverProperties = { "-Dmetals.enable-best-effort=true" },
           showImplicitArguments = true,
           showInferredType = true,
           showImplicitConversionsAndClasses = true

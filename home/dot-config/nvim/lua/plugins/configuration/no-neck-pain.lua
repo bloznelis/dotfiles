@@ -1,6 +1,6 @@
 return {
   "shortcuts/no-neck-pain.nvim",
-  -- keys = { "<leader>nn" },
+  keys = { "<leader>nn" },
   version = "*",
   opts = {
     width = 130,
