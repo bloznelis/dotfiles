@@ -8,7 +8,7 @@ return {
     default_file_explorer = true,
     keymaps = {
       ["q"] = "actions.close",
-      ["h"] = "actions.parent"
+      -- ["h"] = "actions.parent"
     },
   },
   dependencies = { "nvim-tree/nvim-web-devicons" },
