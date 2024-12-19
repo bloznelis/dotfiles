@@ -3,6 +3,9 @@ vim.g.maplocalleader = ' '
 
 vim.opt.showmode = false -- Don't show mode in cmdline
 
+-- Hide cmdline when not in use
+vim.opt.cmdheight = 0
+
 -- highlight cursorline
 vim.opt.cursorline = true
 

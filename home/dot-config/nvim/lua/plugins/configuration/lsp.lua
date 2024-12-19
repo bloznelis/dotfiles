@@ -1,7 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
   ft = { "clojure", "rust", "lua", "go", "ocaml", "python", "scala", "java", "sbt" },
-  -- event = VeryLazy,
   config = function()
     local lspconfig = require('lspconfig')
     local capabilities = vim.lsp.protocol.make_client_capabilities()

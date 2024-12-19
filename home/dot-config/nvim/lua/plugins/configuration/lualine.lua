@@ -9,7 +9,6 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        -- theme = 'kanagawa',
         component_separators = '|',
         section_separators = '',
         disabled_filetypes = {
@@ -19,11 +18,6 @@ return {
         ignore_focus = {},
         always_divide_middle = true,
         globalstatus = false,
-        refresh = {
-          statusline = 1000,
-          tabline = 1000,
-          winbar = 1000,
-        }
       },
       sections = {
         lualine_a = { 'mode' },

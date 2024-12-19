@@ -59,29 +59,19 @@ return {
       builtin.find_files({ ignore_case = true })
     end)
 
-    -- vim.keymap.set('n', '<leader>.', function()
-    --   local lsp_root = vim.lsp.buf.list_workspace_folders()
-    --   -- builtin.find_files({ cwd = lsp_root[1] })
-    --   builtin.find_files()
-    -- end)
-
     vim.keymap.set('n', '<leader>/', function()
-      -- require('telescope.builtin').live_grep(themes.get_dropdown({ previewer = true }))
       require('telescope.builtin').live_grep()
     end)
 
     vim.keymap.set('v', '<leader>/', function()
-      -- require('telescope.builtin').grep_string(themes.get_dropdown({ previewer = true }))
       require('telescope.builtin').live_grep()
     end)
 
     vim.keymap.set('n', '<leader>pp', function()
       require 'telescope'.extensions.projects.projects {}
-      -- require('telescope').extensions.project.project {}
     end)
 
     vim.keymap.set('n', '<leader><CR>', function()
-      -- require('telescope.builtin').resume(themes.get_dropdown({ previewer = true }))
       require('telescope.builtin').resume()
     end)
 
@@ -90,6 +80,5 @@ return {
     require('telescope').load_extension('fzf')
     require('telescope').load_extension('projects')
     require("telescope").load_extension("ui-select")
-    -- require('telescope').load_extension('project')
   end
 }
