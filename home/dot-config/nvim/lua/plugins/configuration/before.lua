@@ -5,9 +5,9 @@ return {
     local before = require('before')
     before.setup({
       -- How many edit locations to store in memory (default: 10)
-      history_size = 10,
+      history_size = 42,
       -- Wrap around the ends of the edit history (default: false)
-      history_wrap_enabled = true
+      history_wrap_enabled = false
     })
 
     vim.keymap.set('n', '<C-h>', before.jump_to_last_edit, {})

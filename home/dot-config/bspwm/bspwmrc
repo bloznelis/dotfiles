@@ -8,6 +8,7 @@ killall greenclip
 killall picom
 killall flameshot
 killall krowbar
+killall dunst
 
 nitrogen --restore &
 sxhkd &
