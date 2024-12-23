@@ -7,7 +7,7 @@ killall sxhkd
 killall greenclip
 killall picom
 killall flameshot
-killall crowbar
+killall krowbar
 
 nitrogen --restore &
 sxhkd &
@@ -42,6 +42,6 @@ bspc config single_monocle true
 
 alacritty --class floatingTerminal &
 
-/home/lukas/.cargo/bin/crowbar --position bottom &
+krowbar --disabled-widgets network &
 
 xset r rate 300 40
