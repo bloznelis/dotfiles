@@ -15,3 +15,7 @@ sudo systemctl enable keyd && sudo systemctl start keyd
 1. Place config to `/etc/keyd/default.conf`
 2. `sudo systemctl enable keyd`
 3. `sudo keyd reload` (Optional)
+
+## Tips
+- `sudo keyd monitor` to see key names
+- `sudo journalctl -eu keyd` to see logs for debugging
