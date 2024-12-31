@@ -18,8 +18,8 @@ flameshot &
 ~/.config/dunst/launch.sh &
 xsetroot -cursor_name left_ptr &
 
-bspc monitor DisplayPort-0 -d web code III IV V VI
-bspc monitor HDMI-A-1 -d VII VIII IX
+bspc monitor DisplayPort-0 -d web code III IV V VI VII
+bspc monitor HDMI-A-1 -d VIII IX X
 
 bspc config top_padding 0
 bspc config bottom_padding 0
@@ -32,7 +32,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      false
 
 bspc rule -a gnome-calculator state=floating follow=on
-bspc rule -a floatingTerminal state=floating follow=on
+bspc rule -a floatingTerminal state=floating follow=on center=true rectangle=1376x625+0+0
 bspc rule -a pomatez state=floating
 
 bspc rule -a "Slack" desktop=VII follow=off
