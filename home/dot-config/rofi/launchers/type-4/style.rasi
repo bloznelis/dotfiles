@@ -9,6 +9,7 @@
 
 /*****----- Configuration -----*****/
 configuration {
+  dpi: 144;
 	modi:                       "drun";
     show-icons:                 true;
     display-drun:               "";
@@ -56,7 +57,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       800px;
+    width:                       1200px;
     x-offset:                    0px;
     y-offset:                    0px;
 

@@ -31,17 +31,17 @@ return {
         project = {
           base_dirs = {
             '~/code',
+            '~/work',
           },
-          -- on_project_selected = function(prompt_bufnr)
-          --   project_actions.change_working_directory(prompt_bufnr, false)
-          -- end
+        },
+        fzf = {
+          case_mode = "smart_case", -- "smart_case", "ignore_case" or "respect_case"
         }
       }
     })
 
 
     local themes = require('telescope.themes')
-
 
     vim.keymap.set('n', '<leader>cc', function()
       builtin.commands({ sort_lastused = true })
@@ -56,7 +56,7 @@ return {
     end)
 
     vim.keymap.set('n', '<leader><leader>', function()
-      builtin.find_files({ ignore_case = true })
+      builtin.find_files()
     end)
 
     vim.keymap.set('n', '<leader>/', function()

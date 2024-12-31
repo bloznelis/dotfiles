@@ -9,9 +9,6 @@ return {
       vim.keymap.set("v", "K", require('metals').type_of_range)
       vim.keymap.set("n", "<leader>fo", require('metals').organize_imports)
       vim.keymap.set("n", "<leader>mc", require('telescope').extensions.metals.commands)
-      -- if client.server_capabilities.inlayHintProvider then
-      --   vim.lsp.buf.inlay_hint(bufnr, true)
-      -- end
     end
 
     vim.api.nvim_create_autocmd("FileType", {
@@ -21,7 +18,7 @@ return {
           serverProperties = { "-Dmetals.enable-best-effort=true" },
           showImplicitArguments = true,
           showInferredType = true,
-          showImplicitConversionsAndClasses = true
+          -- showImplicitConversionsAndClasses = true
         }
 
         metals_config.find_root_dir_max_project_nesting = 2

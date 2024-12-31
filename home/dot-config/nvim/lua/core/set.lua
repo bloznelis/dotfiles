@@ -77,6 +77,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+vim.opt.spelloptions = 'camel'
 
 vim.api.nvim_create_autocmd('Filetype', {
   group = vim.api.nvim_create_augroup('setIndent', { clear = true }),

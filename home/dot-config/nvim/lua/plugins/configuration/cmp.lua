@@ -67,11 +67,11 @@ return {
         end,
 
         ['<C-J>'] = cmp.mapping(function()
-            luasnip.jump(1)
+          luasnip.jump(1)
         end, { "i", "s" }),
 
         ['<C-K>'] = cmp.mapping(function()
-            luasnip.jump(-1)
+          luasnip.jump(-1)
         end, { "i", "s" }),
 
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -109,6 +109,7 @@ return {
         comparators = {
           lspkind_comparator({
             kind_priority = {
+              Module = 30,
               Field = 20,
               Function = 16,
               Enum = 15,
@@ -121,7 +122,6 @@ return {
               Reference = 10,
               Struct = 10,
               Variable = 9,
-              Module = 8,
               File = 8,
               Folder = 8,
               Class = 5,
@@ -136,11 +136,12 @@ return {
               Value = 1,
             },
           }),
-          cmp.config.compare.exact,
+          cmp.config.compare.offset,
           cmp.config.compare.length,
+          cmp.config.compare.exact,
+          cmp.config.compare.kind,
           cmp.config.compare.score,
           cmp.config.compare.recently_used,
-          cmp.config.compare.kind,
           label_comparator
         },
       },
