@@ -1,5 +1,5 @@
 return {
   "eraserhd/parinfer-rust",
-  enabled = true,
+  enabled = false,
   build = "cargo build --release"
 }
