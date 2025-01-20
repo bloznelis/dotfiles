@@ -127,6 +127,9 @@ alias serialize='echo "Serialization is DTO -> String"'
 
 alias cal='cal -m'
 
+# Unicode support
+alias tmux='tmux -u'
+
 export PATH="$PATH:/home/lukas/.local/share/coursier/bin"
 export PATH="$PATH:/home/lukas/.cargo/bin/"
 
