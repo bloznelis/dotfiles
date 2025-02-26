@@ -2,10 +2,11 @@ return {
   "nvim-lualine/lualine.nvim",
   event = "UiEnter",
   dependencies = {
-    'arkav/lualine-lsp-progress',
+    'linrongbin16/lsp-progress.nvim',
     'nvim-tree/nvim-web-devicons'
   },
   config = function()
+    require('lsp-progress').setup()
     require('lualine').setup {
       options = {
         icons_enabled = true,
@@ -23,7 +24,14 @@ return {
         lualine_a = { 'mode' },
         lualine_b = {},
         lualine_c = { { 'filename', path = 1 } },
-        lualine_x = { 'location', 'diagnostics', 'branch', 'diff', 'filetype', 'lsp_progress' },
+        lualine_x = {
+          function() return require('lsp-progress').progress() end,
+          'location',
+          'diagnostics',
+          'branch',
+          'diff',
+          'filetype',
+        },
         lualine_y = {},
         lualine_z = {}
       },
@@ -40,5 +48,13 @@ return {
       inactive_winbar = {},
       extensions = {}
     }
+
+    -- listen lsp-progress event and refresh lualine
+    vim.api.nvim_create_augroup("lualine_augroup", { clear = true })
+    vim.api.nvim_create_autocmd("User", {
+      group = "lualine_augroup",
+      pattern = "LspProgressStatusUpdated",
+      callback = require("lualine").refresh,
+    })
   end
 }

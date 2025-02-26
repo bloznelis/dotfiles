@@ -1,6 +1,6 @@
 return {
-  'bloznelis/before.nvim',
-  -- dir = "/home/lukas/code/lua/before.nvim",
+  -- 'bloznelis/before.nvim',
+  dir = "/home/lukas/code/lua/before.nvim",
   config = function()
     local before = require('before')
     before.setup({

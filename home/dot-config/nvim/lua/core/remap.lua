@@ -7,9 +7,6 @@ vim.keymap.set("v", "p", "P")
 
 -- buffers
 vim.keymap.set("n", "<S-x>", vim.cmd.bd)
-vim.keymap.set("n", "<leader>bp", vim.cmd.bp)
-vim.keymap.set("n", "<leader>bn", vim.cmd.bn)
-vim.keymap.set("n", "<leader>bx", vim.cmd.bd)
 
 -- move selected regions
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv")

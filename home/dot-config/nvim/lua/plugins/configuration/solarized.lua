@@ -1,6 +1,6 @@
 return {
   "maxmx03/solarized.nvim",
-  enabled = false,
+  enabled = true,
   config = function()
     require('solarized').setup({
       styles = {
