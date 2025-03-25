@@ -24,7 +24,7 @@ return {
         metals_config.find_root_dir_max_project_nesting = 2
 
         metals_config.init_options.statusBarProvider = "off"
-        metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+        -- metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
         require("metals").initialize_or_attach(metals_config)
       end,
       group = nvim_metals_group,
