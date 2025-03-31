@@ -25,7 +25,7 @@ bspc monitor HDMI-A-1 -d VIII IX X
 bspc config top_padding 0
 bspc config bottom_padding 0
 
-bspc config border_width         2
+bspc config border_width         5
 bspc config window_gap           0
 
 bspc config split_ratio          0.52
@@ -51,6 +51,6 @@ bspc config single_monocle true
 
 alacritty --class floatingTerminal &
 
-krowbar --disabled-widgets network &
+/home/lukas/.cargo/bin/krowbar --disabled-widgets network &
 
 xset r rate 300 40

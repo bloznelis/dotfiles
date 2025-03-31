@@ -2,7 +2,7 @@ return {
   'saghen/blink.cmp',
   enabled = true,
   -- optional: provides snippets for the snippet source
-  dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
+  -- dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
 
   -- use a release tag to download pre-built binaries
   version = '*',
@@ -36,7 +36,7 @@ return {
     completion = {
       menu = {
         draw = {
-          columns = { { "label", "label_description", gap = 1 }, { "kind" } },
+          columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "kind" } },
         }
       }
     },
@@ -51,7 +51,8 @@ return {
       nerd_font_variant = 'mono'
     },
 
-    snippets = { preset = 'luasnip' },
+    snippets = { preset = 'default' },
+
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {

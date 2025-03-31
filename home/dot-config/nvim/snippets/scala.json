@@ -1,0 +1,10 @@
+{
+  "for-comp": {
+    "prefix": "for-comp",
+    "body": [
+      "for",
+      " ${1:foo} <- ${2:bar}",
+      "yield ()"
+    ]
+  }
+}

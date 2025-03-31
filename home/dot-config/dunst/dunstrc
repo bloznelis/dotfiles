@@ -1,6 +1,6 @@
 [global]
 width = (100, 350)
-height = 50
+height = 200
 origin = "top-right"
 offset = "30x30"
 notification_limit = 4

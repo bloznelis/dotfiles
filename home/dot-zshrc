@@ -6,6 +6,9 @@ export ZSH="/home/lukas/.oh-my-zsh"
 export VISUAL="nvim"
 export EDITOR="nvim"
 
+export BLOOP_JAVA_OPTS="-Xmx8G -XX:+UseZGC -Xss4m"
+# export SBT_OPTS="-Xmx6g -Xss2m -XX:+UseG1GC -XX:InitialCodeCacheSize=512m -XX:ReservedCodeCacheSize=512m"
+
 ZSH_THEME="blazz"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5e5847,bold,underline"
 
@@ -153,3 +156,5 @@ if [ -f '/home/lukas/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/lukas
 # This section can be safely removed at any time if needed.
 [[ ! -r '/home/lukas/.opam/opam-init/init.zsh' ]] || source '/home/lukas/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+
+[ -f "/home/lukas/.ghcup/env" ] && . "/home/lukas/.ghcup/env" # ghcup-env
