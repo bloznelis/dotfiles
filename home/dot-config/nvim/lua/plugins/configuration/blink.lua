@@ -1,3 +1,74 @@
+local kinds = {
+  "Text",
+  "Method",
+  "Function",
+  "Constructor",
+  "Field",
+  "Variable",
+  "Class",
+  "Interface",
+  "Module",
+  "Property",
+  "Unit",
+  "Value",
+  "Enum",
+  "Keyword",
+  "Snippet",
+  "Color",
+  "File",
+  "Reference",
+  "Folder",
+  "EnumMember",
+  "Constant",
+  "Struct",
+  "Event",
+  "Operator",
+  "TypeParameter",
+}
+
+local indexed_kinds = {}
+for i, kind in ipairs(kinds) do
+  indexed_kinds[kind] = i
+end
+
+local kind_order = {
+  "Method",
+  "Field",
+  "Module",
+  "Function",
+  "Text",
+  "Constructor",
+  "Variable",
+  "Class",
+  "Interface",
+  "Property",
+  "Unit",
+  "Value",
+  "Enum",
+  "Keyword",
+  "Snippet",
+  "Color",
+  "File",
+  "Reference",
+  "Folder",
+  "EnumMember",
+  "Constant",
+  "Struct",
+  "Event",
+  "Operator",
+  "TypeParameter",
+}
+
+local kind_rank = {}
+for i, kind in ipairs(kind_order) do
+  local kind_idx = indexed_kinds[kind]
+  kind_rank[kind_idx] = i
+end
+
+function sort_by_kind(a, b)
+  return (kind_rank[a.kind] or math.huge) < (kind_rank[b.kind] or math.huge)
+end
+
 return {
   'saghen/blink.cmp',
   enabled = true,
@@ -38,6 +109,11 @@ return {
         draw = {
           columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "kind" } },
         }
+      },
+      accept = {
+        auto_brackets = {
+          enabled = false
+        }
       }
     },
 
@@ -64,7 +140,14 @@ return {
     -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
     --
     -- See the fuzzy documentation for more information
-    fuzzy = { implementation = "prefer_rust_with_warning" }
+    fuzzy = {
+      implementation = "prefer_rust_with_warning",
+      sorts = {
+        sort_by_kind,
+        'score',
+        'sort_text'
+      }
+    }
   },
   opts_extend = { "sources.default" }
 }

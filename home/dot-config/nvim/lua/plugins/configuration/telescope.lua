@@ -1,6 +1,5 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = '0.1.8',
   keys = { "<leader><leader>", "<leader>bb", "<leader>pp", "<leader>/", "<leader>" },
   dependencies = {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
