@@ -84,3 +84,9 @@ vim.api.nvim_create_autocmd('Filetype', {
   pattern = { 'scala' },
   command = 'setlocal shiftwidth=4 tabstop=4'
 })
+
+vim.api.nvim_create_autocmd('Filetype', {
+  group = vim.api.nvim_create_augroup('setIndentKeys', { clear = true }),
+  pattern = { 'scala' },
+  command = 'setlocal indentkeys-=<>>'
+})

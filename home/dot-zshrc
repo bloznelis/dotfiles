@@ -6,7 +6,7 @@ export ZSH="/home/lukas/.oh-my-zsh"
 export VISUAL="nvim"
 export EDITOR="nvim"
 
-export BLOOP_JAVA_OPTS="-Xmx8G -XX:+UseZGC -Xss4m"
+# export BLOOP_JAVA_OPTS="-Xmx8G -XX:+UseZGC -Xss4m"
 # export SBT_OPTS="-Xmx6g -Xss2m -XX:+UseG1GC -XX:InitialCodeCacheSize=512m -XX:ReservedCodeCacheSize=512m"
 
 ZSH_THEME="blazz"
@@ -102,7 +102,7 @@ alias ssh='TERM=xterm-color ssh'
 alias vim="nvim"
 alias k=kubectl
 alias p=pulsarctl
-alias post="echo 44354 | xsel --clipboard --input"
+alias post="echo 46406 | xsel --clipboard --input"
 
 function cpath(){
   realpath "$1" | xargs echo -n | tr -d '\n' | xclip -selection clipboard
@@ -158,3 +158,5 @@ if [ -f '/home/lukas/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/lukas
 # END opam configuration
 
 [ -f "/home/lukas/.ghcup/env" ] && . "/home/lukas/.ghcup/env" # ghcup-env
+
+export PATH=/home/lukas/.groundcover/bin:${PATH}

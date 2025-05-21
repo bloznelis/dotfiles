@@ -71,17 +71,8 @@ end
 
 return {
   'saghen/blink.cmp',
+  version = '1.*',
   enabled = true,
-  -- optional: provides snippets for the snippet source
-  -- dependencies = { 'L3MON4D3/LuaSnip', version = 'v2.*' },
-
-  -- use a release tag to download pre-built binaries
-  version = '*',
-  -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-  -- build = 'cargo build --release',
-  -- If you use nix, you can build from source using latest nightly rust with:
-  -- build = 'nix run .#build-plugin',
-
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
@@ -127,6 +118,8 @@ return {
       nerd_font_variant = 'mono'
     },
 
+    cmdline = { enabled = false },
+
     snippets = { preset = 'default' },
 
     -- Default list of enabled providers defined so that you can extend it
@@ -143,7 +136,7 @@ return {
     fuzzy = {
       implementation = "prefer_rust_with_warning",
       sorts = {
-        sort_by_kind,
+        -- sort_by_kind,
         'score',
         'sort_text'
       }

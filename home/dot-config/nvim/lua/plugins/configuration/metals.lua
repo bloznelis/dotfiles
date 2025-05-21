@@ -19,7 +19,8 @@ return {
       pattern = { "scala", "sbt", "java" },
       callback = function()
         metals_config.settings = {
-          serverProperties = { "-Dmetals.enable-best-effort=true -Xmx8G -XX:+UseZGC -Xss4m" },
+          -- serverProperties = { "-Dmetals.enable-best-effort=true", "-Xmx8G", "-XX:+UseZGC", "-Xss4m" },
+          serverProperties = { "-Dmetals.enable-best-effort=true" },
           inlayHints = {
             hintsInPatternMatch = { enable = true },
             implicitArguments = { enable = true },
