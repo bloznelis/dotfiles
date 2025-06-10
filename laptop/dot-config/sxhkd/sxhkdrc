@@ -23,9 +23,15 @@ XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 XF86AudioRaiseVolume
-  pactl set-sink-volume @DEFAULT_SINK@ +5000
+  pactl set-sink-volume @DEFAULT_SINK@ +1000
 
 XF86AudioLowerVolume
+  pactl set-sink-volume @DEFAULT_SINK@ -1000
+
+shift + XF86AudioRaiseVolume
+  pactl set-sink-volume @DEFAULT_SINK@ +5000
+
+shift + XF86AudioLowerVolume
   pactl set-sink-volume @DEFAULT_SINK@ -5000
 
 {_,shift + ,super + }XF86MonBrightness{Down,Up}
