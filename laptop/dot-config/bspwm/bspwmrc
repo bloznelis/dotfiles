@@ -17,9 +17,17 @@ flameshot &
 ~/.config/dunst/launch.sh &
 xsetroot -cursor_name left_ptr &
 
-bspc monitor eDP-1 -d web code III IV V VI
+if xrandr | grep "HDMI-1 connected" > /dev/null; then
+    /home/lukas/scripts/screens.sh
+    bspc monitor HDMI-1 -d web code III IV V VI
+    bspc monitor eDP-1 -d VII VIII
+    bspc wm -O HDMI-1 eDP-1
+else
+    /home/lukas/scripts/screen.sh
+    bspc monitor eDP-1 -d web code III IV V VI
+fi
 
-bspc config border_width         2
+bspc config border_width         5
 bspc config window_gap           0
 
 bspc config split_ratio          0.52

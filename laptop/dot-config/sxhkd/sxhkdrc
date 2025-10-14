@@ -2,10 +2,11 @@ super + @space
     ~/.config/rofi/launchers/type-4/launcher.sh
 
 super + Return
-	alacritty --working-directory "`xcwd`"
+	alacritty
+	# alacritty --working-directory "`xcwd`"
 
 super + shift + Return
-	  alacritty --class floatingTerminal --working-directory "`xcwd`"
+	  alacritty --class floatingTerminal
 
 # change sound sink
 super + shift + o
@@ -115,7 +116,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '{web,code,III,IV,V,VI,VII,VIII}'
 
 #
 # preselect

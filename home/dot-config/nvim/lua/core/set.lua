@@ -82,7 +82,7 @@ vim.opt.spelloptions = 'camel'
 vim.api.nvim_create_autocmd('Filetype', {
   group = vim.api.nvim_create_augroup('setIndent', { clear = true }),
   pattern = { 'scala' },
-  command = 'setlocal shiftwidth=4 tabstop=4'
+  command = 'setlocal shiftwidth=2 tabstop=2'
 })
 
 vim.api.nvim_create_autocmd('Filetype', {

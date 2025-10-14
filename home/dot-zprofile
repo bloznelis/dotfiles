@@ -4,3 +4,7 @@ if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
 fi
 
 export PATH="$PATH:/home/lukas/.cache/scalacli/local-repo/bin/scala-cli"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/home/lukas/.local/share/coursier/bin"
+# <<< coursier install directory <<<

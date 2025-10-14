@@ -21,13 +21,13 @@ return {
         metals_config.settings = {
           -- serverProperties = { "-Dmetals.enable-best-effort=true", "-Xmx8G", "-XX:+UseZGC", "-Xss4m" },
           serverProperties = { "-Dmetals.enable-best-effort=true" },
-          inlayHints = {
-            hintsInPatternMatch = { enable = true },
-            implicitArguments = { enable = true },
-            implicitConversions = { enable = true },
-            inferredTypes = { enable = true },
-            typeParameters = { enable = true },
-          }
+          -- inlayHints = {
+          --   hintsInPatternMatch = { enable = true },
+          --   implicitArguments = { enable = true },
+          --   implicitConversions = { enable = true },
+          --   inferredTypes = { enable = true },
+          --   typeParameters = { enable = true },
+          -- }
         }
 
         metals_config.find_root_dir_max_project_nesting = 2

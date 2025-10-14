@@ -2,12 +2,11 @@ return {
   "neovim/nvim-lspconfig",
   ft = { "clojure", "rust", "lua", "go", "ocaml", "python", "scala", "java", "sbt" },
   config = function()
-    local lspconfig = require('lspconfig')
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local signs = {
-      Error = " ",
+      Error = "⚠ ",
       Warn = "⚠ ",
       Hint = "⊕ ",
       Info = " "
@@ -55,50 +54,40 @@ return {
       end
     })
 
-    -- #### Server specific configuration ####
-    -- ### Lua ###
-    lspconfig.lua_ls.setup({
-      capabilities = capabilities,
-      settings = {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT'
-          },
-          diagnostics = {
-            globals = { 'vim' },
-          },
-          workspace = {
-            library = {
-              vim.env.VIMRUNTIME,
+    local servers = {
+      gopls = {},
+      ocamllsp = {},
+      pyright = {},
+      clojure_lsp = {},
+      rust_analyzer = {},
+      harper_ls = {
+        settings = {
+          userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",
+        }
+      },
+      lua_ls = {
+        settings = {
+          Lua = {
+            runtime = {
+              version = 'LuaJIT'
+            },
+            diagnostics = {
+              globals = { 'vim' },
+            },
+            workspace = {
+              library = {
+                vim.env.VIMRUNTIME,
+                "${3rd}/love2d/library"
+              }
             }
           }
         }
       }
-    })
+    }
 
-    -- ### Python ###
-    lspconfig.pyright.setup({
-      capabilities = capabilities,
-    })
-
-    -- ### OCaml ###
-    lspconfig.ocamllsp.setup({
-      capabilities = capabilities,
-    })
-
-    -- ### Go ###
-    lspconfig.gopls.setup({
-      capabilities = capabilities,
-    })
-
-    -- ### Clojure ###
-    lspconfig.clojure_lsp.setup({
-      capabilities = capabilities,
-    })
-
-    -- ### Rust ###
-    lspconfig.rust_analyzer.setup({
-      capabilities = capabilities,
-    })
+    for server, settings in pairs(servers) do
+      vim.lsp.config(server, settings)
+      vim.lsp.enable(server)
+    end
   end
 }

@@ -22,7 +22,7 @@ return {
           SpellBad = { strikethrough = false },
           TelescopePromptNormal = { bg = colors.bg_dimerer },
           Float = { bg = colors.bg_dimer },
-          NormalFloat = { bg = colors.bg_dim },
+          NormalFloat = { bg = colors.bg_dimerer },
           FloatBorder = { fg = colors.bg_dimer, bg = colors.bg_dimer },
           TelescopePromptBorder = { fg = colors.bg_dimerer, bg = colors.bg_dimerer },
           TelescopeResultsNormal = { fg = colors.base00, bg = colors.bg_dim },

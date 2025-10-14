@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.keymap.set("n", "<leader>fs", vim.cmd.write)
 
 vim.keymap.set("v", "p", "P")
 vim.keymap.set("v", "p", "P")
@@ -66,3 +65,14 @@ vim.keymap.set('x', '(', 'c(<C-r>")<Esc>', { noremap = true, silent = true })
 vim.keymap.set('x', '"', 'c"<C-r>""<Esc>', { noremap = true, silent = true })
 vim.keymap.set('x', '[[', 'c[<C-r>"]<Esc>', { noremap = true, silent = true })
 vim.keymap.set('x', '<leader>[', 'c{<C-r>"}<Esc>', { noremap = true, silent = true })
+
+-- does not move empty lines to the register
+local function better_dd()
+  if vim.fn.getline('.'):match('^%s*$') then
+    return '"_dd'
+  else
+    return 'dd'
+  end
+end
+
+vim.keymap.set('n', 'dd', better_dd, { expr = true, desc = 'Non-empty line deletion' })

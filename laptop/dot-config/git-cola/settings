@@ -1,0 +1,44 @@
+{
+    "bookmarks": [],
+    "gui_state": {
+        "messagebox": {
+            "width": 720,
+            "height": 251,
+            "x": 597,
+            "y": 412
+        },
+        "addtogitignore": {
+            "geometry": "AdnQywADAAD////9AAABDwAAB4IAAAMoAAAAAAAAARIAAAd/AAADJQAAAAAAAAAAB4AAAAAAAAABEgAAB38AAAMl",
+            "width": 1920,
+            "height": 532,
+            "x": -3,
+            "y": 271
+        },
+        "mainview": {
+            "geometry": "AdnQywADAAAAAAAAAAAAEQAAB38AAAQ4AAAAAAAAABEAAAd/AAAEOAAAAAAAAAAAB4AAAAAAAAAAEQAAB38AAAQ4",
+            "width": 1920,
+            "height": 1064,
+            "x": 0,
+            "y": 17,
+            "lock_layout": false,
+            "windowstate": "AAAA/wAAAAL9AAAAAgAAAAIAAAeAAAAEEvwBAAAAA/wAAAAAAAAD7QAAAFkA/////AIAAAAC+wAAAAwAUwB0AGEAdAB1AHMBAAAAFgAABBIAAABcAP////sAAAAQAEIAcgBhAG4AYwBoAGUAcwAAAAMlAAABAwAAAFwA/////AAAA/AAAAOQAAAAvgD////8AgAAAAL7AAAADABDAG8AbQBtAGkAdAEAAAAWAAAAwgAAAEYA////+wAAAAgARABpAGYAZgEAAADbAAADTQAAAF0A/////AAAA4sAAAP1AAAAAAD////6/////wEAAAAD+wAAABQAUwB1AGIAbQBvAGQAdQBsAGUAcwAAAAAA/////wAAAKUA////+wAAABIARgBhAHYAbwByAGkAdABlAHMAAAAAAP////8AAACjAP////sAAAAMAFIAZQBjAGUAbgB0AAAAAAD/////AAAAggD///8AAAADAAAHgAAAAgf8AQAAAAH8AAAAAP////8AAAAAAP////r/////AQAAAAL7AAAADgBBAGMAdABpAG8AbgBzAAAAAAD/////AAAASAD////7AAAADgBDAG8AbgBzAG8AbABlAAAAAAD/////AAAAEwD///8AAAeAAAAAAAAAAAQAAAAEAAAACAAAAAj8AAAAAA==",
+            "show_status_filter": false,
+            "toolbars": [],
+            "ref_sort": 0,
+            "show_diff_line_numbers": true,
+            "show_diff_filenames": false,
+            "image_diff_mode": 0,
+            "image_zoom_mode": 0,
+            "word_wrap": true,
+            "max_diff_size": 1,
+            "authors": []
+        }
+    },
+    "recent": [
+        {
+            "name": "dotfiles",
+            "path": "/home/lukas/dotfiles"
+        }
+    ],
+    "copy_formats": []
+}

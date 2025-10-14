@@ -3,7 +3,7 @@
 ![wip](https://github.com/user-attachments/assets/502fb1b0-79e5-457a-b3ff-534c887aff40)
 
 ### Packages for fresh install
-`sudo pacman -Syu neovim, ripgrep, fzf, openssh, keychain, rofi, dunst, bspwm, sxhkd, picom, tmux`
+`sudo pacman -Syu neovim ripgrep fzf openssh keychain rofi dunst bspwm sxhkd picom tmux`
 
 ### Link home
 `stow home --dotfiles`
