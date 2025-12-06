@@ -32,7 +32,7 @@ blinking = "Always"
 TERM = "xterm-256color"
 
 [font]
-size = 13
+size = 10
 
 [font.bold]
 family = "JetBrainsMono NFM"
