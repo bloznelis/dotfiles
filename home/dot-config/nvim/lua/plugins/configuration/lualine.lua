@@ -23,7 +23,10 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = {},
-        lualine_c = { { 'filename', path = 1 } },
+        lualine_c = { function()
+            local cwd = vim.fn.getcwd(0)  -- or vim.loop.cwd()
+            return vim.fn.fnamemodify(cwd, ":t")
+        end },
         lualine_x = {
           function() return require('lsp-progress').progress() end,
           'location',
@@ -38,14 +41,28 @@ return {
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { 'filename' },
+        lualine_c = { },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {}
       },
       tabline = {},
-      winbar = {},
-      inactive_winbar = {},
+      winbar = {
+        lualine_a = {},
+        lualine_b = { },
+        lualine_c = { { 'filename', path = 0 } },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+      },
+      inactive_winbar = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { { 'filename', path = 0 } },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+      },
       extensions = {}
     }
 

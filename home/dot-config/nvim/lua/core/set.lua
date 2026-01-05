@@ -59,13 +59,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   command = [[%s/\s\+$//e]],
 })
 
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" },
-  {
-    pattern = { "*.yaml.gotmpl" },
-    command = "set ft=yaml"
-  }
-)
-
 -- Highlight when yanking
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking',
@@ -90,3 +83,8 @@ vim.api.nvim_create_autocmd('Filetype', {
   pattern = { 'scala' },
   command = 'setlocal indentkeys-=<>>'
 })
+
+local function project_name()
+  local cwd = vim.fn.getcwd(0)
+  return vim.fn.fnamemodify(cwd, ":t")
+end

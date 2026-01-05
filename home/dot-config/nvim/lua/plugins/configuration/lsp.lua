@@ -1,21 +1,23 @@
 return {
   "neovim/nvim-lspconfig",
-  ft = { "clojure", "rust", "lua", "go", "ocaml", "python", "scala", "java", "sbt" },
+  ft = { "clojure", "rust", "lua", "go", "ocaml", "python", "scala", "java", "sbt", "zig" },
   config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-    local signs = {
-      Error = "⚠ ",
-      Warn = "⚠ ",
-      Hint = "⊕ ",
-      Info = " "
-    }
-
-    for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
+    vim.diagnostic.config({
+      virtual_text = true,
+      update_in_insert = true,
+      float = float_config,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.HINT] = "󰌶",
+          [vim.diagnostic.severity.INFO] = "",
+        },
+      },
+    })
 
     vim.api.nvim_create_autocmd('LspAttach', {
       desc = 'LSP actions',
@@ -24,8 +26,9 @@ return {
 
         vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set("n", "gD", function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
         vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
+        vim.keymap.set("n", "gt", function() vim.lsp.buf.type_definition() end, opts)
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
         vim.keymap.set("n", "<leader>cd", function() vim.diagnostic.open_float() end, opts)
         vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end, opts)
@@ -55,6 +58,7 @@ return {
     })
 
     local servers = {
+      zls = {},
       gopls = {},
       ocamllsp = {},
       pyright = {},
