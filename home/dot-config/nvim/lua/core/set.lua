@@ -84,7 +84,21 @@ vim.api.nvim_create_autocmd('Filetype', {
   command = 'setlocal indentkeys-=<>>'
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "NeogitStatus",
+  callback = function()
+    vim.treesitter.stop()
+  end,
+})
+
 local function project_name()
   local cwd = vim.fn.getcwd(0)
   return vim.fn.fnamemodify(cwd, ":t")
 end
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'openscad',
+  callback = function()
+    vim.bo.commentstring = '// %s'
+  end,
+})

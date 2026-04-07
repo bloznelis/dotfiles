@@ -50,7 +50,25 @@ return {
       winbar = {
         lualine_a = {},
         lualine_b = { },
-        lualine_c = { { 'filename', path = 0 } },
+        lualine_c = {
+          {
+            function()
+              local ok, oil = pcall(require, "oil")
+              if not ok then return "" end
+              return oil.get_current_dir()
+            end,
+            cond = function()
+              return vim.bo.filetype == "oil"
+            end,
+          },
+          {
+            "filename",
+            path = 0,
+            cond = function()
+              return vim.bo.filetype ~= "oil"
+            end,
+          }
+        },
         lualine_x = {},
         lualine_y = {},
         lualine_z = {}

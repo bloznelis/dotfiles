@@ -1,6 +1,18 @@
 return {
   "neovim/nvim-lspconfig",
-  ft = { "clojure", "rust", "lua", "go", "ocaml", "python", "scala", "java", "sbt", "zig" },
+  ft = {
+        "clojure",
+        "go",
+        "java",
+        "lua",
+        "ocaml",
+        "openscad",
+        "python",
+        "rust",
+        "sbt",
+        "scala",
+        "zig"
+      },
   config = function()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
@@ -64,6 +76,7 @@ return {
       pyright = {},
       clojure_lsp = {},
       rust_analyzer = {},
+      openscad_lsp = {},
       harper_ls = {
         settings = {
           userDictPath = vim.fn.stdpath("config") .. "/spell/en.utf-8.add",

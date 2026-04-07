@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
-  keys = { "<leader><leader>", "<leader>bb", "<leader>pp", "<leader>/", "<leader>" },
+  -- keys = { "<leader><leader>", "<leader>bb", "<leader>pp", "<leader>/", "<leader>" },
+  keys = { "<leader>bb", "<leader>pp", "<leader>/", "<leader>" },
   dependencies = {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     { 'nvim-telescope/telescope-project.nvim' },
@@ -64,9 +65,9 @@ return {
       builtin.git_files({ show_untracked = true, previewer = true })
     end)
 
-    vim.keymap.set('n', '<leader><leader>', function()
-      builtin.find_files()
-    end)
+    -- vim.keymap.set('n', '<leader><leader>', function()
+    --   builtin.find_files()
+    -- end)
 
     vim.keymap.set('n', '<leader>/', function()
       require('telescope.builtin').live_grep()

@@ -4,9 +4,6 @@ vim.g.maplocalleader = " "
 vim.keymap.set("v", "p", "P")
 vim.keymap.set("v", "p", "P")
 
--- buffers
-vim.keymap.set("n", "<S-x>", vim.cmd.bd)
-
 -- move selected regions
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv")
@@ -76,3 +73,10 @@ local function better_dd()
 end
 
 vim.keymap.set('n', 'dd', better_dd, { expr = true, desc = 'Non-empty line deletion' })
+
+-- Close current buffer
+vim.keymap.set('n', '<S-x>', function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.cmd('bprevious')
+  vim.cmd('bdelete ' .. bufnr)
+end, { noremap = true, silent = true })
